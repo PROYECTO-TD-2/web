@@ -1,0 +1,171 @@
+:root {
+    --verde-esmeralda: rgba(46, 204, 113, 0.8);
+    --azul-cielo-tech: rgba(52, 152, 219, 0.8);
+    --teal-profundo: #0f6d75;
+    --azul-petroleo: #0b3e44;
+    --naranja-energia: #f45d01;
+    --amarillo-led: #ffca3a;
+    --gris-claro: #f5f5f5;
+    --texto-oscuro: #222222;
+    --color-claro: #ecf0f1;
+
+    --font-main: 'Segoe UI', Tahoma, Verdana, sans-serif;
+
+    --text-base: 1rem;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body { scroll-behavior: smooth; }
+
+body {
+    font-family: var(--font-main);
+    line-height: 1.6;
+    color: var(--texto-oscuro);
+    background-color: var(--color-claro);
+    font-size: var(--text-base);
+    min-width: 300px !important;
+}
+
+/* --- Header y Navegación --- */
+header {
+    background: linear-gradient(var(--verde-esmeralda), var(--azul-cielo-tech)) center/cover no-repeat;
+    color: var(--color-claro);
+    padding: 1rem 0;
+    position: sticky;
+    /* Se queda arriba al hacer scroll */
+    top: 0;
+    z-index: 1000;
+    /* Asegura que esté por encima de otros elementos */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    justify-content: space-between;
+}
+
+.logo {
+    display: flex;
+    margin-right: 10%;
+}
+
+.logo img {
+    max-width: 75px;
+    height: auto;
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: linear-gradient(var(--teal-profundo), var(--azul-petroleo)) center/cover no-repeat;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out;
+    /* Animación de apertura */
+}
+
+.nav-list.active { max-height: 300px; }
+
+.nav-list li { text-align: center; }
+
+.nav-list a {
+    display: block;
+    padding: 1em 1em;
+    color: var(--color-light);
+    text-decoration: none;
+    transition: background-color .5s ease;
+}
+
+.nav-list a:hover {
+    color: var(--texto-oscuro);
+    text-decoration: underline;
+}
+
+.menu-toggle {
+    display: block;
+    cursor: pointer;
+    padding: .5rem;
+    position: relative;
+    z-index: 1001;
+    /* Para que el ícono esté siempre visible */
+    margin-left: 10%;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: whitesmoke;
+    transition: all .5s ease-in-out;
+}
+
+/* Animación de la hamburguesa para convertirse en cruz */
+.menu-toggle.active .bar:nth-child(2) { opacity: 0; }
+
+.menu-toggle.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+
+.menu-toggle.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+/* mains y sections */
+
+main { padding: 1em 1em; }
+
+section {
+    padding: 2em 2em;
+    margin-bottom: 1em;
+    border-radius: 1em;
+    background-color: var(--color-light);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+
+/* --- Media Queries para tablets y desktops (Desde 768px) --- */
+@media (min-width: 768px) {
+
+    /* Navegación */
+
+    nav { max-width: 75%; }
+
+    .menu-toggle { display: none; /* Ocultar hamburguesa en pantallas grandes */ }
+
+    .nav-list {
+        flex-direction: row;
+        /* Menú horizontal */
+        position: static;
+        /* No flotante */
+        max-height: none;
+        /* Siempre visible */
+        justify-content: center;
+        /* Alinear a la derecha */
+        background-color: transparent;
+        /* Fondo transparente */
+        width: 100%;
+        margin: 0 auto;
+        background: none;
+    }
+
+    .nav-list li { margin-left: 1.5em; /* Espacio entre los ítems */ }
+
+    .nav-list a { padding: 1em 1em; /* Ajustar padding */ }
+
+    main {
+        max-width: 1200px;
+        margin: 1em auto;
+    }
+
+    section { padding: 3em 2em; /* Más padding en pantallas grandes */ }
+
+}
