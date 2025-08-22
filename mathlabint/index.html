@@ -8,7 +8,7 @@
     <link href="css/style.css" rel="stylesheet" />
   </head>
 
-  <body>
+ <body>
     <header>
       <nav>
         <div class="menu-toggle" id="mobile-menu">
@@ -17,7 +17,9 @@
           <span class="bar"></span>
         </div>
 
-        <div class="logo"> <img src="media/img/mathlabint.webp"> </div>
+        <div class="logo">
+          <img src="media/img/mathlabint.webp" alt="MathLabInt Logo">
+        </div>
         
         <ul class="nav-list" id="nav-list">
           <li><a href="#inicio">Inicio</a></li>
@@ -25,34 +27,245 @@
           <li><a href="#avances">Avances</a></li>
           <li><a href="#practico">Práctico</a></li>
           <li><a href="#epilogo">Epílogo</a></li>
+          <div class="mobile-language-switcher">
+            <div class="lang-flag active" onclick="translateTo('es')" id="mobile-flag-es">🇺🇾</div>
+            <div class="lang-flag" onclick="translateTo('en')" id="mobile-flag-en">🇺🇸</div>
+          </div>
         </ul>
+        
+        <div class="translate-container">
+          <div class="lang-flag active" onclick="translateTo('es')" id="flag-es">🇺🇾</div>
+          <div class="lang-flag" onclick="translateTo('en')" id="flag-en">🇺🇸</div>
+          <div id="google_translate_element" style="display: none;"></div>
+        </div>
       </nav>
     </header>
 
     <main>
       <section id="inicio">
         <h1>INICIO</h1>
-        <p> ¡Te damos la bienvenida a MathLabInt!</p>
+        
+        <div class="intro-text">
+          ¡Te damos la bienvenida a MathLabInt!
+        </div>
+
+        <h2>¿Qué es MathLabInt?</h2>
+        <p>MathLabInt (Laboratorio de Matemáticas Interactivo) es una plataforma educativa innovadora que transforma conceptos matemáticos abstractos en experiencias tangibles y visuales. Utilizando tecnologías como micro:bit y Arduino, creamos dispositivos que permiten "tocar" las matemáticas.</p>
+
+        <h2>El Proyecto</h2>
+        <p>Nuestro objetivo es construir dispositivos interactivos que visualizan funciones, geometría, estadística y álgebra en tiempo real. Cada módulo permite experimentar, formular hipótesis y validar resultados matemáticos de forma práctica, integrando programación, electrónica y matemáticas para desarrollar pensamiento lógico de manera innovadora.</p>
+
+        <h2>Objetivos del Proyecto</h2>
+        <div class="objetivo-item">
+          <h3>🎯 Visualización Interactiva</h3>
+          <p>Crear graficadores de funciones con matrices de LEDs que muestren comportamientos matemáticos en tiempo real.</p>
+        </div>
+        
+        <div class="objetivo-item">
+          <h3>📊 Simulación Práctica</h3>
+          <p>Desarrollar simuladores de probabilidades y calculadoras estadísticas usando datos reales del entorno.</p>
+        </div>
+        
+        <div class="objetivo-item">
+          <h3>📐 Geometría Tangible</h3>
+          <p>Implementar medidores de formas geométricas con sensores para comprender conceptos espaciales.</p>
+        </div>
+        
+        <div class="objetivo-item">
+          <h3>🤖 Integración con IA</h3>
+          <p>Utilizar inteligencia artificial para generar ejercicios personalizados y adaptarlos a la realidad física.</p>
+        </div>
       </section>
+
       <section id="teorico">
         <h1>TEÓRICO</h1>
+        
+        <h2>Hardware</h2>
+        
+        <h3>¿Qué es micro:bit?</h3>
+        <p>El micro:bit es una pequeña computadora programable diseñada para hacer que aprender y enseñar sea fácil y divertido. Incluye sensores, pantalla LED, Bluetooth y conectores para componentes externos.</p>
+
+        <h3>Arduino Uno</h3>
+        <p>Plataforma de hardware libre basada en una sencilla placa con un microcontrolador. Ideal para proyectos interactivos que requieren múltiples sensores y actuadores.</p>
+
+        <h3>Componentes del Proyecto</h3>
+        <div class="material-grid">
+          <div class="material-item">
+            <h4>🔲 Matriz de LEDs 8x8</h4>
+            <p>Para visualizar gráficos de funciones matemáticas</p>
+          </div>
+          <div class="material-item">
+            <h4>📡 Sensores</h4>
+            <p>Ultrasonido, temperatura y luz para capturar datos del entorno</p>
+          </div>
+          <div class="material-item">
+            <h4>🎛️ Controles</h4>
+            <p>Potenciómetros y botones para interacción del usuario</p>
+          </div>
+          <div class="material-item">
+            <h4>📺 Display LCD</h4>
+            <p>Pantalla 16x2 para mostrar resultados y menús</p>
+          </div>
+        </div>
+
+        <h2>Software</h2>
+        <p>Utilizamos MakeCode para programar los micro:bit, Arduino IDE para Arduino, y herramientas de inteligencia artificial para generar contenido educativo personalizado. La programación se realizará principalmente en bloques visuales para facilitar la comprensión.</p>
+
+        <h2>Disciplinas Integradas</h2>
+        <p>Este proyecto combina matemáticas, programación, electrónica, diseño y pedagogía. Fomentamos el aprendizaje STEAM (Ciencia, Tecnología, Ingeniería, Artes y Matemáticas) de manera práctica e interdisciplinaria.</p>
+
+        <h2>Materiales Utilizados</h2>
+        <div class="material-grid">
+          <div class="material-item">
+            <strong>Microcontroladores:</strong><br>
+            2 micro:bit + 1 Arduino Uno
+          </div>
+          <div class="material-item">
+            <strong>Visualización:</strong><br>
+            Matriz LEDs 8x8, Display LCD 16x2
+          </div>
+          <div class="material-item">
+            <strong>Sensores:</strong><br>
+            Ultrasonido, temperatura, luz, acelerómetro
+          </div>
+          <div class="material-item">
+            <strong>Actuadores:</strong><br>
+            Servo motores, buzzer, LEDs básicos
+          </div>
+          <div class="material-item">
+            <strong>Componentes:</strong><br>
+            Resistencias, potenciómetros, botones
+          </div>
+          <div class="material-item">
+            <strong>Conexiones:</strong><br>
+            Protoboards, cables de conexión
+          </div>
+        </div>
       </section>
+
       <section id="avances">
-          <h1>AVANCES</h1>
+        <h1>AVANCES</h1>
+        
+        <div class="avance-item">
+          <div class="avance-fecha">Viernes 22/08/2025 - Avance #1</div>
+          <h3>Configuración Inicial y Pruebas de Conectividad</h3>
+          <p>Iniciamos con la configuración básica de los micro:bit y las primeras pruebas de conexiones remotas. Establecimos la comunicación entre dispositivos y definimos los protocolos de transmisión de datos.</p>
+          
+          <div class="placeholder-media">
+            📸 [Fotos de la configuración inicial]<br>
+            📹 [Video de primera conexión exitosa]
+          </div>
+          
+          <p><strong>Resultados:</strong> Conexión estable establecida entre micro:bits con alcance de 10 metros en interiores.</p>
+        </div>
 
-        <article>
-          <p>Viernes </p>
-        </article>
+        <div class="avance-item">
+          <div class="avance-fecha">Próximo Avance - En Desarrollo</div>
+          <h3>Implementación de Matriz de LEDs</h3>
+          <p>Trabajando en la integración de la matriz de LEDs 8x8 para las primeras visualizaciones matemáticas básicas.</p>
+          
+          <div class="placeholder-media">
+            🔄 [En desarrollo]<br>
+            Diseños y bocetos preliminares
+          </div>
+        </div>
 
+        <div class="avance-item">
+          <div class="avance-fecha">Planificado</div>
+          <h3>Integración con IA</h3>
+          <p>Fase de implementación de algoritmos de inteligencia artificial para la generación automática de ejercicios matemáticos adaptados a los sensores disponibles.</p>
+          
+          <div class="placeholder-media">
+            📋 [Por desarrollar]<br>
+            Especificaciones técnicas en preparación
+          </div>
+        </div>
       </section>
+
       <section id="practico">
         <h1>PRÁCTICO</h1>
+        
+        <h2>Estado Actual del Proyecto</h2>
+        <p>Actualmente nos encontramos en la fase de desarrollo inicial. Hemos establecido las bases de comunicación entre micro:bits y estamos trabajando en los primeros prototipos funcionales.</p>
+
+        <h2>Modelo en Desarrollo</h2>
+        <div class="placeholder-media">
+          🔧 [Prototipo en construcción]<br>
+          📊 [Diagramas de conexión]<br>
+          📹 [Videos de funcionamiento - Próximamente]
+        </div>
+
+        <h2>Desafíos Actuales</h2>
+        <div class="objetivo-item">
+          <h3>⚡ Optimización de Energía</h3>
+          <p>Trabajamos en minimizar el consumo energético para mayor autonomía de los dispositivos.</p>
+        </div>
+
+        <div class="objetivo-item">
+          <h3>📡 Estabilidad de Comunicación</h3>
+          <p>Mejorando la robustez de las conexiones inalámbricas entre micro:bits.</p>
+        </div>
+
+        <h2>Código Fuente y Documentación</h2>
+        <p>El código fuente y los diagramas técnicos se actualizarán conforme avance el desarrollo. Toda la documentación estará disponible bajo licencias abiertas para fomentar la colaboración educativa.</p>
+
+        <div class="placeholder-media">
+          💻 [Repositorio GitHub - En preparación]<br>
+          📐 [Esquemas técnicos - En desarrollo]<br>
+          📝 [Documentación completa - Próximamente]
+        </div>
       </section>
+
       <section id="epilogo">
         <h1>EPÍLOGO</h1>
+        
+        <h2>Equipo de Desarrollo</h2>
+        <div class="integrantes-grid">
+          <div class="integrante">
+            <h3>👤 Felarte</h3>
+            <p>Desarrollador de Hardware<br>
+            <em>Especialista en electrónica y sensores</em></p>
+          </div>
+          <div class="integrante">
+            <h3>👤 Fernández</h3>
+            <p>Programador Principal<br>
+            <em>Experto en micro:bit y Arduino</em></p>
+          </div>
+          <div class="integrante">
+            <h3>👤 Galo</h3>
+            <p>Diseñador de Experiencia<br>
+            <em>Interfaz usuario y usabilidad</em></p>
+          </div>
+          <div class="integrante">
+            <h3>👤 Inojosa</h3>
+            <p>Especialista en IA<br>
+            <em>Algoritmos y contenido educativo</em></p>
+          </div>
+        </div>
+
+        <h2>Enlaces de Descarga</h2>
+        <div class="objetivo-item">
+          <h3>📂 Recursos del Proyecto</h3>
+          <p>• Código fuente (GitHub) - <em>Disponible próximamente</em><br>
+             • Diagramas técnicos (PDF) - <em>En desarrollo</em><br>
+             • Guías de construcción - <em>Por publicar</em><br>
+             • Videos tutoriales - <em>En producción</em></p>
+        </div>
+
+        <h2>Reflexión Final</h2>
+        <p>MathLabInt representa nuestra visión de hacer las matemáticas más accesibles y emocionantes. Creemos firmemente que cuando los estudiantes pueden "tocar" y experimentar con conceptos matemáticos, el aprendizaje se vuelve más significativo y duradero.</p>
+
+        <p>Este proyecto no es solo sobre tecnología, sino sobre transformar la manera en que entendemos y enseñamos matemáticas. Cada LED que se enciende, cada sensor que responde, cada dato que se visualiza, representa un puente entre lo abstracto y lo concreto.</p>
+
+        <div class="intro-text">
+          ¡Gracias por acompañarnos en este viaje de innovación educativa!<br>
+          <strong>Equipo MathLabInt - STEAM+ 2025</strong>
+        </div>
       </section>
     </main>
 
+	<script src="js/google.js"></script>
+	<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <script defer type="text/javascript" src="js/script.js"></script>
   </body>
 </html>
