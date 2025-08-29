@@ -46,7 +46,8 @@
         <h1>INICIO</h1>
         
         <div class="intro-text">
-          ¡Te damos la bienvenida a MathLabInt!
+          ¡Te damos la bienvenida a MathLabInt! <br>
+          <img src="media/img/logo_mathlabint.webp">
         </div>
 
         <h2>¿Qué es MathLabInt?</h2>
@@ -114,72 +115,100 @@
         <h2>Disciplinas Integradas</h2>
         <p>Este proyecto combina matemáticas, programación, electrónica, diseño y pedagogía. Fomentamos el aprendizaje STEAM (Ciencia, Tecnología, Ingeniería, Artes y Matemáticas) de manera práctica e interdisciplinaria.</p>
 
-        <h2>Materiales Utilizados</h2>
+        <h2>Materiales utilizados (al 29/8/2025)</h2>
         <div class="material-grid">
           <div class="material-item">
             <strong>Microcontroladores:</strong><br>
-            2 micro:bit + 1 Arduino Uno
-          </div>
-          <div class="material-item">
-            <strong>Visualización:</strong><br>
-            Matriz LEDs 8x8, Display LCD 16x2
-          </div>
-          <div class="material-item">
-            <strong>Sensores:</strong><br>
-            Ultrasonido, temperatura, luz, acelerómetro
-          </div>
-          <div class="material-item">
-            <strong>Actuadores:</strong><br>
-            Servo motores, buzzer, LEDs básicos
-          </div>
-          <div class="material-item">
-            <strong>Componentes:</strong><br>
-            Resistencias, potenciómetros, botones
-          </div>
-          <div class="material-item">
-            <strong>Conexiones:</strong><br>
-            Protoboards, cables de conexión
+            2 micro:bit
           </div>
         </div>
       </section>
-
-      <section id="avances">
-        <h1>AVANCES</h1>
-        
-        <div class="avance-item">
-          <div class="avance-fecha">Viernes 22/08/2025 - Avance #1</div>
-          <h3>Configuración Inicial y Pruebas de Conectividad</h3>
-          <p>Iniciamos con la configuración básica de los micro:bit y las primeras pruebas de conexiones remotas. Establecimos la comunicación entre dispositivos y definimos los protocolos de transmisión de datos.</p>
-          
-          <div class="placeholder-media">
-            📸 [Fotos de la configuración inicial]<br>
-            📹 [Video de primera conexión exitosa]
-          </div>
-          
-          <p><strong>Resultados:</strong> Conexión estable establecida entre micro:bits con alcance de 10 metros en interiores.</p>
+          <section class="container">
+            <h1>🎯 Avances del Proyecto</h1>
+            
+            <div class="galeria" id="galeria"> 
+                <!-- Ejemplos de contenido con múltiples archivos por avance -->
+                 <!--
+                <div class="media-item" onclick="openModal('avance1')">
+                    <img src="https://picsum.photos/400/250?random=1" alt="Avance 1">
+                    <div class="media-type">
+                        📸 3 archivos
+                    </div>
+                    <div class="media-description">
+                        <div class="media-date">15 Agosto 2025</div>
+                        <div class="media-title">Primer prototipo funcional</div>
+                        <div class="media-text">Logramos implementar la funcionalidad básica del sistema. Todo funciona según lo esperado.</div>
+                    </div>
+                </div>
+    
+                <div class="media-item" onclick="openModal('avance2')">
+                    <video poster="https://picsum.photos/400/250?random=2" muted>
+                        <source src="https://sample-videos.com/zip/10/mp4/360/SampleVideo_360x240_1mb.mp4" type="video/mp4">
+                    </video>
+                    <div class="media-type">
+                        🎥 4 archivos
+                    </div>
+                    <div class="media-description">
+                        <div class="media-date">18 Agosto 2025</div>
+                        <div class="media-title">Demo de funcionalidades</div>
+                        <div class="media-text">Video mostrando las principales características implementadas.</div>
+                    </div>
+                </div>
+    
+                <div class="media-item" onclick="openModal('avance3')">
+                    <img src="https://picsum.photos/400/250?random=3" alt="Avance 3">
+                    <div class="media-type">
+                        📸 5 archivos
+                    </div>
+                    <div class="media-description">
+                        <div class="media-date">22 Agosto 2025</div>
+                        <div class="media-title">Interfaz mejorada</div>
+                        <div class="media-text">Nuevos elementos visuales que mejoran la experiencia del usuario.</div>
+                    </div>
+                </div> -->
+    
+                <div class="media-item" onclick="openModal('avance4')">
+                    <img src="media/img/avances/2025-08-29_18.47.12.jpg" alt="Avance 4">
+                    <div class="media-type">
+                        📸 8 archivos
+                    </div>
+                    <div class="media-description">
+                        <div class="media-date">29 de agosto de 2025</div>
+                        <div class="media-title">Integración API</div>
+                        <div class="media-text">Los Micro:Bit se comunican acordemente entre sí; se evalúa cambiar el mensaje por ser muy largo para el display del Micro:Bit; se refactoriza el código de ambas placas y cliente.
+                          </div>
+                    </div>
+                </div>
+            </div>
         </div>
+    
+        <!-- Modal para galería ampliada -->
+        <div class="modal" id="modal" onclick="closeModal(event)">
+            <div class="modal-content" id="modalContent">
+                <div class="modal-header">
+                    <div class="modal-counter" id="modalCounter">1 / 3</div>
+                    <button class="modal-close" onclick="closeModal()">&times;</button>
+                </div>
+                
+                <div class="modal-gallery">
+                    <div class="gallery-container">
+                        <div class="gallery-slides" id="gallerySlides">
+                            <!-- Los slides se generan dinámicamente -->
+                        </div>
+                    </div>
+                    
+                    <button class="gallery-nav prev" id="prevBtn" onclick="changeSlide(-1)">‹</button>
+                    <button class="gallery-nav next" id="nextBtn" onclick="changeSlide(1)">›</button>
+                </div>
+                
+                <div class="gallery-dots" id="galleryDots">
+                    <!-- Los dots se generan dinámicamente -->
+                </div>
+                
+                <div class="modal-info" id="modalInfo"></div>
+            </div>
+          </section>
 
-        <div class="avance-item">
-          <div class="avance-fecha">Próximo Avance - En Desarrollo</div>
-          <h3>Implementación de Matriz de LEDs</h3>
-          <p>Trabajando en la integración de la matriz de LEDs 8x8 para las primeras visualizaciones matemáticas básicas.</p>
-          
-          <div class="placeholder-media">
-            🔄 [En desarrollo]<br>
-            Diseños y bocetos preliminares
-          </div>
-        </div>
-
-        <div class="avance-item">
-          <div class="avance-fecha">Planificado</div>
-          <h3>Integración con IA</h3>
-          <p>Fase de implementación de algoritmos de inteligencia artificial para la generación automática de ejercicios matemáticos adaptados a los sensores disponibles.</p>
-          
-          <div class="placeholder-media">
-            📋 [Por desarrollar]<br>
-            Especificaciones técnicas en preparación
-          </div>
-        </div>
       </section>
 
       <section id="practico">
@@ -222,24 +251,29 @@
         <h2>Equipo de Desarrollo</h2>
         <div class="integrantes-grid">
           <div class="integrante">
-            <h3>👤 Felarte</h3>
-            <p>Desarrollador de Hardware<br>
-            <em>Especialista en electrónica y sensores</em></p>
+            <h3>👤 Ismael Felarte</h3>
+            <p>Coordinador de Proyecto<br>
+            <em>Gestión de tareas y organización</em></p>
           </div>
           <div class="integrante">
-            <h3>👤 Fernández</h3>
+            <h3>👤 Fabio Fernández</h3>
             <p>Programador Principal<br>
             <em>Experto en micro:bit y Arduino</em></p>
           </div>
           <div class="integrante">
-            <h3>👤 Galo</h3>
+            <h3>👤 Thomas Galo</h3>
             <p>Diseñador de Experiencia<br>
             <em>Interfaz usuario y usabilidad</em></p>
           </div>
           <div class="integrante">
-            <h3>👤 Inojosa</h3>
+            <h3>👤 Riccardo Inojosa</h3>
             <p>Especialista en IA<br>
             <em>Algoritmos y contenido educativo</em></p>
+          </div>
+          <div class="integrante">
+            <h3>👤 Marcio Larrañaga</h3>
+            <p>Analista de Procesos<br>
+            <em>Documentación y seguimiento técnico</em></p>
           </div>
         </div>
 

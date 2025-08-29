@@ -42,5 +42,29 @@ división del prototipado en pasos:
 3) enviar datos a placa estudiante
 4) monitoreo de datos
 5) microbit estudiante envía datos a microbit profe
+
+TRELLO: creación y asignación de tareas
 FOTOS PARA ADJUNTAR DEL 15/8/2025
+
+22/8/2025
+CLASE
+
+nuevo compañero en el equipo: marcio
+
+inicio de creación del servidor; palabras clave: ia, endpoint, api
+
+conexión éxitosa entre las microbits emisoras y receptoras
+
+pruebas de calibración con acelerómetro???
+
+diseño de la página mejorado
+
+mejoras menores
+
+complejización mínima del sistema
+
+aplicaciones de sensores: SENSOR DE TEMPERATURA
+indica temperatura desde la página con interfaz, siendo que uno lo sensa, le manda la señal a un segundo micro y devuelve la temperatura en la página
+
+analizar para más adelante: integración de api con uruguayeduca??? más niveles de complejidad???
 
