@@ -10,48 +10,90 @@ document.addEventListener('DOMContentLoaded', () => {
             mobileMenu.classList.toggle('active');
         });
     }
+
+    startLogoAnimation();
 });
 
-        // Base de datos de ejemplo con múltiples archivos por avance
+function startLogoAnimation() {
+    const logoLight = document.getElementById('logo-light');
+    const logoDark = document.getElementById('logo-dark');
+    const logoMix = document.getElementById('logo-mix');
+    
+    // Reset inicial
+    [logoLight, logoDark, logoMix].forEach(logo => {
+        logo.classList.remove('show', 'final-show');
+    });
+    
+    // Secuencia de animación
+    setTimeout(() => {
+        logoLight.classList.add('show'); // Logo izquierda aparece
+    }, 500);
+    
+    setTimeout(() => {
+        logoLight.classList.remove('show'); // Logo izquierda desaparece
+        logoDark.classList.add('show');     // Logo centro aparece
+    }, 3500);
+    
+    setTimeout(() => {
+        logoDark.classList.remove('show');  // Logo centro desaparece
+        logoMix.classList.add('show');      // Logo derecha aparece
+    }, 6500);
+    
+    setTimeout(() => {
+        logoMix.classList.remove('show');   // Logo derecha desaparece
+        // Aparecen todos juntos con animación final
+        logoLight.classList.add('final-show');
+        logoDark.classList.add('final-show');
+        logoMix.classList.add('final-show');
+    }, 9500);
+}
+
+// Base de datos de ejemplo con múltiples archivos por avance
         const avancesData = {
-            /*
             'avance1': {
-                date: '15 Agosto 2025',
-                title: 'Primer prototipo funcional',
-                description: 'Logramos implementar la funcionalidad básica del sistema. Todo funciona según lo esperado.',
+                date: '8 de agosto del 2025',
+                title: 'Definición inicial del proyecto y creación de MATHLABINT',
+                description: 'Habemus equipo conformado por <strong>Ismael</strong>, <strong>Fabio</strong>, <strong>Thomas</strong> y <strong>Riccardo</strong>.<br> Se trabajó en la definición inicial del proyecto; se discutieron las ideas generales sobre el hardware y el software a utilizar, así como las problemáticas que se podrían abordar. También se contextualizó el ámbito en el cual se aplicará la propuesta y se delinearon los primeros módulos y la lógica de funcionamiento, incluyendo un ejemplo de función matemática básica.<br>Se planteó además la intención de integrar inteligencia artificial en etapas futuras. En esta sesión no se inició el desarrollo práctico todavía, ya que estuvo centrada en la planificación conceptual.',
                 files: [
-                    { type: 'image', src: 'https://picsum.photos/800/600?random=1', caption: 'Vista general del prototipo' },
-                    { type: 'image', src: 'https://picsum.photos/800/600?random=11', caption: 'Detalle de la interfaz principal' },
-                    { type: 'video', src: 'https://sample-videos.com/zip/10/mp4/360/SampleVideo_360x240_1mb.mp4', caption: 'Demostración del flujo básico' }
+                    { type: 'image', src: '../media/img/logos/logo_mathlabint_light.webp', },
                 ]
             },
             'avance2': {
-                date: '18 Agosto 2025',
-                title: 'Demo de funcionalidades',
-                description: 'Video mostrando las principales características implementadas.',
+                date: '12 de agosto del 2025',
+                title: 'Reunión de coordinación y planificación inicial en línea',
+                description: 'Entre las 19:00 y las 20:00, <strong>Fabio</strong>, <strong>Thomas</strong> y <strong>Riccardo</strong> mantuvieron una reunión virtual por Meet. En esta instancia se enfocaron en la coordinación general del proyecto y en cómo llevar las ideas iniciales a un esquema concreto para su implementación. <br> Se discutió la posibilidad de incorporar ESP32 como alternativa tecnológica junto a la base de datos y los componentes iniciales necesarios para el arranque; se creó un repositorio en GitHub, organizado con una estructura base que incluye un espacio general y otro dedicado a la página web. <br> En relación con la integración de inteligencia artificial, se planteó trabajar con un conjunto universo de datos para poder contextualizar el nivel y la complejidad de los ejercicios matemáticos. Para ello, se elaboró un maquetado inicial de un ejercicio de ejemplo, definiendo los datos mínimos, el contexto y la complejidad.',
                 files: [
-                    { type: 'video', src: 'https://sample-videos.com/zip/10/mp4/360/SampleVideo_360x240_1mb.mp4', caption: 'Demo completa del sistema' },
-                    { type: 'image', src: 'https://picsum.photos/800/600?random=2', caption: 'Captura de la nueva funcionalidad' },
-                    { type: 'image', src: 'https://picsum.photos/800/600?random=21', caption: 'Comparación antes/después' },
-                    { type: 'image', src: 'https://picsum.photos/800/600?random=22', caption: 'Métricas de rendimiento' }
+                    { type: 'image', src: '../media/img/avances/2025-08-12_capturadepantalla1.jpg' },
+                    { type: 'image', src: '../media/img/avances/2025-08-12_capturadepantalla2.png' },
+                    { type: 'image', src: '../media/img/avances/2025-08-12_capturadepantalla3.jpg' },
                 ]
             },
             'avance3': {
-                date: '22 Agosto 2025',
-                title: 'Interfaz mejorada',
-                description: 'Nuevos elementos visuales que mejoran la experiencia del usuario.',
+                date: '15 de agosto del 2025',
+                title: 'Redefinición del modelo físico y planificación inicial',
+                description: 'Entre todo el equipo actual por <strong>Ismael</strong>, <strong>Fabio</strong>, <strong>Thomas</strong> y <strong>Riccardo</strong>, nos enfocamos en redefinir el esquema del modelo físico del proyecto. Se decidió comenzar con una estructura más acotada, compuesta por Cliente (interfaz con microbit profesor), Microbit estudiante, Servidor con base de datos y Nube con integración de IA. <br> A partir de este modelo, se dividió el prototipado en pasos concretos: 1) Vincular placas (profesor y estudiante). 2) Completar formulario (lista inicial de sensores, contexto y nivel educativo; se resolvió que en esta primera fase se usará solo un sensor para simplificar). 3) Enviar los datos desde el microbit profesor al estudiante. 4) Monitorear la información enviada. 5) Permitir que el microbit estudiante devuelva datos al microbit profesor. <br> Para organizar las tareas se creó un tablero en Trello, donde se distribuyeron las primeras responsabilidades y se estableció la dinámica de trabajo colaborativo.',
                 files: [
-                    { type: 'image', src: 'https://picsum.photos/800/600?random=3', caption: 'Nueva interfaz de usuario' },
-                    { type: 'image', src: 'https://picsum.photos/800/600?random=31', caption: 'Paleta de colores actualizada' },
-                    { type: 'image', src: 'https://picsum.photos/800/600?random=32', caption: 'Componentes rediseñados' },
-                    { type: 'image', src: 'https://picsum.photos/800/600?random=33', caption: 'Vista móvil optimizada' },
-                    { type: 'video', src: 'https://sample-videos.com/zip/10/mp4/360/SampleVideo_360x240_1mb.mp4', caption: 'Tour por la nueva interfaz' }
+                    { type: 'image', src: '../media/img/avances/2025-08-15_20.24.58.jpg' },
+                    { type: 'image', src: '../media/img/avances/2025-08-15_20.24.59.jpg' },
+                    { type: 'image', src: '../media/img/avances/2025-08-15_20.25.00.jpg' },
+                    { type: 'image', src: '../media/img/avances/2025-08-15_20.25.01.jpg' },
+                    { type: 'image', src: '../media/img/avances/2025-08-15_20.25.02.jpg' },
+                    { type: 'image', src: '../media/img/avances/2025-08-15_capturadepantallatardia.png' },
                 ]
-            },*/
+            },
             'avance4': {
+                date: '22 de agosto de 2025',
+                title: 'Integración API y primeras pruebas',
+                description: 'En esta jornada se sumó Marcio Larrañaga al equipo, comenzando con tareas de documentación. Durante la reunión, el grupo debatió sobre cómo gestionar los prompts en la API y si era conveniente guardar interacciones previas, dado que las respuestas obtenidas resultaban genéricas. Para mejorar, se incorporó la región de Uruguay como parámetro y se evaluó el uso de recursos como Uruguay Educa y ANEP a futuro. <br> <strong>Riccardo</strong> consiguió que la API funcionara y realizara consultas, aunque persisten los desafíos de personalización en las respuestas. <strong>Thomas</strong> trabajó en la página web, logrando traducciones, modificaciones en la interfaz y correcciones menores, aunque algunas traducciones no aplicaron correctamente. <strong>Fabio</strong> inició las primeras pruebas de comunicación entre dos micro:bits: el dispositivo “profesor” envía datos al “alumno” sobre sensores, contexto y nivel, aunque la inexperiencia en la conexión demoró el proceso. <strong>Marcio</strong> registró estos avances en la bitácora, con la tarea pendiente de documentar hechos anteriores en los que no participó.',
+                files: [
+                    { type: 'image', src: '../media/img/avances/2025-08-22_19.39.19.jpg' },
+                    { type: 'video', src: '../media/vid/avances/2025-08-22_20.56.21.mp4' },
+                ]
+            },
+            'avance5': {
                 date: '29 de agosto del 2025',
-                title: 'Integración API',
-                description: 'Se pudo solventar el problema de la lectura MicroBit; se evalúan otros lapsos de evaluación de temperatura ya que toma muchas veces la misma. <br> Desafíos: Se compiló el código pero no cambió la respuesta al microbit anterior. Se revisa con el profesor; sugiere probar en otro equipo. <br> Se encuentra un problema: Micro:Bit no lee a mucha distancia; al alejarse a la otra punta del salón, la señal se debilita considerablemente.',
+                title: 'Comunicación estable entre Micro:bits y refactorización',
+                description: 'En esta sesión, el grupo logró confirmar que los Micro:bits se comunican adecuadamente entre sí. Se procedió a refactorizar el código en ambas placas y el cliente, y se solucionó un problema de lectura. Sin embargo, se identificó que las mediciones de temperatura se repetían con frecuencia (por ejemplo, 28° varias veces seguidas), lo que abrió la discusión sobre permitir que el usuario controle la cantidad y el momento de las lecturas a través de los botones del dispositivo. Entre los desafíos técnicos, al compilar el código no se lograba cambiar la respuesta al microbit receptor; con la ayuda del profesor se sugirió probar en otro equipo. Además, se comprobó que la señal se debilitaba notablemente al aumentar la distancia entre los dispositivos. <br> <strong>Thomas</strong> trabajó en la página web y resolvió un problema con la inserción de imágenes. <strong>Fabio</strong> y <strong>Riccardo</strong> probaron el flujo completo de las tareas implementadas la semana anterior. <strong>Marcio</strong> se encargó de resumir bitácoras previas y ajustar su formato. <strong>Ismael</strong> realizó documentación audiovisual de las pruebas de Fabio y Riccardo, además de investigar cómo apoyar en programación y testear los micro:bits en distintos escenarios de temperatura.',
                 files: [
                     { type: 'image', src: '../media/img/avances/2025-08-29_18.47.12.jpg' },
                     { type: 'image', src: '../media/img/avances/2025-08-29_18.47.27.jpg' },
@@ -112,7 +154,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         </video>
                     `;
                 } else {
-                    slide.innerHTML = `<img src="${file.src}" alt="${file.caption}">`;
+                    slide.innerHTML = `<img src="${file.src}">`;
                 }
                 
                 slidesContainer.appendChild(slide);
@@ -169,8 +211,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="media-date">${currentAvance.date}</div>
                 <div class="media-title">${currentAvance.title}</div>
                 <div class="media-text">${currentAvance.description}</div>
-                <hr style="margin: 1rem 0; border: none; border-top: 1px solid rgba(255,255,255,0.3);">
-                <div style="font-style: italic; color: var(--amarillo-led);">${currentFile.caption}</div>
             `;
         }
 
