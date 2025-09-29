@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     startLogoAnimation();
+
 });
 
 function startLogoAnimation() {
@@ -154,7 +155,7 @@ function startLogoAnimation() {
                         </video>
                     `;
                 } else {
-                    slide.innerHTML = `<img src="${file.src}">`;
+                    slide.innerHTML = `<img src="${file.src}" loading="lazy">`;
                 }
                 
                 slidesContainer.appendChild(slide);
