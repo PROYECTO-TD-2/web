@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="../media/img/logos/logo_mathlabint_light.webp">
+  <title>MATHLABINT - Felarte, Fernández, Galo, Inojosa, Larrañaga</title>
+  <link href="../css/style.css" rel="stylesheet" />
+</head>
+
+<body>
+  <header>
+    <nav>
+      <div class="menu-toggle" id="mobile-menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+
+      <div class="logo">
+        <img src="../media/img/logos/logo_mathlabint_mix.webp" alt="MathLabInt Logo">
+      </div>
+
+      <ul class="nav-list" id="nav-list">
+        <li><a href="..">Inicio</a></li>
+        <li><a href="teorico.html">Teórico</a></li>
+        <li><a href="#">Avances</a></li>
+        <li><a href="practico.html">Práctico</a></li>
+        <li><a href="epilogo.html">Epílogo</a></li>
+      </ul>
+
+    </nav>
+  </header>
+
+  <main>
+
+    <section id="avances">
+
+      <h1>AVANCES</h1>
+
+      <div class="container">
+
+        <h2>AGOSTO</h2>
+
+        <div class="galeria" id="galeria">
+          <!-- Ejemplos de contenido con múltiples archivos por avance -->
+
+                <div class="media-item" onclick="openModal('avance1')">
+                    <img src="../media/img/logos/logo_mathlabint_light.webp" alt="Avance 1" loading="lazy">
+                    <div class="media-type">
+                        📸 1 archivo
+                    </div>
+                    <div class="media-description">
+                        <div class="media-date">8 de agosto del 2025</div>
+                        <div class="media-title">Definición inicial del proyecto y creación de MATHLABINT</div>
+                        <div class="media-text">Conformación de equipo, con nombre y propuesta elegida de proyecto. Primera clase dedicada a definir el hardware y software, pensar problemáticas posibles y plantear la integración de IA.</div>
+                    </div>
+                </div>
+
+                <div class="media-item" onclick="openModal('avance2')">
+                    <img src="../media/img/avances/2025-08-12_capturadepantalla1.jpg" alt="Avance 2" loading="lazy">
+                    <div class="media-type">
+                        📸 3 archivos
+                    </div>
+                    <div class="media-description">
+                        <div class="media-date">12 de agosto del 2025</div>
+                        <div class="media-title">Reunión de coordinación y planificación inicial en línea</div>
+                        <div class="media-text">La mayoría del equipo se reunió por Meet para coordinar tareas, definir el esquema base del proyecto e iniciar la organización en GitHub;
+                          se plantearon ideas para la integración de IA y un primer ejercicio matemático de ejemplo.</div>
+                    </div>
+                </div>
+    
+                <div class="media-item" onclick="openModal('avance3')">
+                  <img src="../media/img/avances/2025-08-15_20.24.58.jpg" alt="Avance 3" loading="lazy">
+                    <div class="media-type">
+                      📸 6 archivos
+                    </div>
+                    <div class="media-description">
+                        <div class="media-date">15 de agosto del 2025</div>
+                        <div class="media-title">Redefinición del modelo físico y planificación inicial</div>
+                        <div class="media-text">El equipo redefinió el esquema del modelo físico;
+                          se estableció una base más simple para iniciar el prototipado;
+                          se dividieron las etapas del proceso y se organizó el trabajo con la creación de un tablero en Trello.</div>
+                    </div>
+                  </div>
+
+          <div class="media-item" onclick="openModal('avance4')">
+            <img src="../media/img/avances/2025-08-22_19.39.19.jpg" alt="Avance 4" loading="lazy">
+            <div class="media-type">
+              📸 2 archivos
+            </div>
+            <div class="media-description">
+              <div class="media-date">22 de agosto del 2025</div>
+              <div class="media-title">Integración API + Primeras pruebas</div>
+              <div class="media-text">Se incorporó nuevo integrante al equipo y se trabajó en la conexión con la API;
+                surgieron dificultades por respuestas demasiado genéricas;
+                inicialización de pruebas de comunicación entre micro:bits y documentación.
+              </div>
+            </div>
+          </div>
+
+          <div class="media-item" onclick="openModal('avance5')">
+            <img src="../media/img/avances/2025-08-29_18.47.12.jpg" alt="Avance 5" loading="lazy">
+            <div class="media-type">
+              📸🎥 8 archivos
+            </div>
+            <div class="media-description">
+              <div class="media-date">29 de agosto de 2025</div>
+              <div class="media-title">Comunicación estable entre Micro:bits y refactorización</div>
+              <div class="media-text">Se confirmaron las comunicaciones entre micro:bits y se refactorizó el código de las placas y el cliente;
+                se detectaron desafíos con la señal, la longitud de los mensajes y la lectura repetida de valores;
+                el equipo avanzó también en la documentación, ajustes de la página y registro audiovisual de las pruebas.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal para galería ampliada -->
+      <div class="modal" id="modal" onclick="closeModal(event)">
+        <div class="modal-content" id="modalContent">
+          <div class="modal-header">
+            <div class="modal-counter" id="modalCounter">1 / 3</div>
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+          </div>
+
+          <div class="modal-gallery">
+            <div class="gallery-container">
+              <div class="gallery-slides" id="gallerySlides">
+                <!-- Los slides se generan dinámicamente -->
+              </div>
+            </div>
+
+            <button class="gallery-nav prev" id="prevBtn" onclick="changeSlide(-1)">‹</button>
+            <button class="gallery-nav next" id="nextBtn" onclick="changeSlide(1)">›</button>
+          </div>
+
+          <div class="gallery-dots" id="galleryDots">
+            <!-- Los dots se generan dinámicamente -->
+          </div>
+
+          <div class="modal-info" id="modalInfo"></div>
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <script defer type="text/javascript" src="../js/script.js"></script>
+</body>
+
+</html>

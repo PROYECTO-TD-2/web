@@ -49,6 +49,126 @@ function startLogoAnimation() {
     }, 9500);
 }
 
+class AutoCarousel {
+    constructor() {
+        this.track = document.querySelector('.carousel-track');
+        this.slides = document.querySelectorAll('.carousel-slide');
+        this.indicators = document.querySelectorAll('.indicator');
+        this.progressBar = document.querySelector('.progress-bar');
+        this.container = document.querySelector('.carousel-container');
+        
+        this.currentSlide = 0;
+        this.totalSlides = this.slides.length;
+        this.isAnimating = false;
+        this.autoPlayInterval = null;
+        
+        this.init();
+    }
+
+    init() {
+        // Configurar eventos de indicadores
+        this.indicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', () => {
+                if (!this.isAnimating) {
+                    this.goToSlide(index);
+                }
+            });
+        });
+
+        // Pausar en hover (solo en desktop)
+        if (window.innerWidth > 1024) {
+            this.container.addEventListener('mouseenter', () => this.pause());
+            this.container.addEventListener('mouseleave', () => this.play());
+        }
+
+        // Pausar en touch (móvil)
+        this.container.addEventListener('touchstart', () => this.pause());
+        this.container.addEventListener('touchend', () => {
+            setTimeout(() => this.play(), 2000);
+        });
+
+        // Iniciar autoplay
+        this.play();
+    }
+
+    goToSlide(slideIndex) {
+        if (this.isAnimating || slideIndex === this.currentSlide) return;
+        
+        this.isAnimating = true;
+        
+        // Remover clases activas
+        this.slides[this.currentSlide].classList.remove('active');
+        this.indicators[this.currentSlide].classList.remove('active');
+        
+        // Actualizar slide actual
+        this.currentSlide = slideIndex;
+        
+        // Calcular transformación
+        const translateX = -this.currentSlide * 100;
+        this.track.style.transform = `translateX(${translateX}%)`;
+        
+        // Activar nuevo slide
+        setTimeout(() => {
+            this.slides[this.currentSlide].classList.add('active');
+            this.indicators[this.currentSlide].classList.add('active');
+            
+            // Aplicar animación especial a algunos slides
+            if (this.currentSlide % 2 === 1) {
+                this.slides[this.currentSlide].classList.add('fade-in');
+                setTimeout(() => {
+                    this.slides[this.currentSlide].classList.remove('fade-in');
+                }, 800);
+            }
+            
+            this.isAnimating = false;
+        }, 100);
+    }
+
+    nextSlide() {
+        const nextIndex = (this.currentSlide + 1) % this.totalSlides;
+        this.goToSlide(nextIndex);
+    }
+
+    play() {
+        this.pause(); // Limpiar interval existente
+        
+        // Reiniciar animación de la barra de progreso
+        this.progressBar.style.animation = 'none';
+        this.progressBar.offsetHeight; // Forzar reflow
+        this.progressBar.style.animation = 'progress 3s linear infinite';
+        
+        this.autoPlayInterval = setInterval(() => {
+            this.nextSlide();
+        }, 3000);
+    }
+
+    pause() {
+        if (this.autoPlayInterval) {
+            clearInterval(this.autoPlayInterval);
+            this.autoPlayInterval = null;
+        }
+        this.progressBar.style.animationPlayState = 'paused';
+    }
+}
+
+// Inicializar cuando el DOM esté listo
+document.addEventListener('DOMContentLoaded', () => {
+    new AutoCarousel();
+});
+
+// Manejar cambios de orientación en móviles
+window.addEventListener('orientationchange', () => {
+    setTimeout(() => {
+        // Reinicializar si es necesario
+        const carousel = document.querySelector('.carousel-track');
+        const currentSlide = document.querySelector('.carousel-slide.active');
+        if (currentSlide && carousel) {
+            const slideIndex = Array.from(currentSlide.parentNode.children).indexOf(currentSlide);
+            carousel.style.transform = `translateX(-${slideIndex * 100}%)`;
+        }
+    }, 100);
+});
+
 // Base de datos de ejemplo con múltiples archivos por avance
         const avancesData = {
             'avance1': {
