@@ -511,20 +511,6 @@ p {
   margin-top: 10px;
 }
 
-.microbit-counter-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #bdc3c7;
-  transition: all 0.3s ease;
-}
-
-.microbit-counter-dot.microbit-active {
-  background: #3498db;
-  width: 24px;
-  border-radius: 4px;
-}
-
 .microbit-official-link {
   display: inline-block;
   margin-top: 20px;
@@ -831,8 +817,198 @@ p {
   border-radius: 0.5em;
 }
 
-pre {
-  border-radius: 1em;
+.codigo-section {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.codigo-section h2 {
+  color: #2c3e50;
+  border-bottom: 3px solid #3498db;
+  padding-bottom: 10px;
+  margin-bottom: 30px;
+  font-size: 2em;
+}
+
+.codigo-intro {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  margin-bottom: 30px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  text-align: center;
+}
+
+.codigo-intro p {
+  color: #555;
+  font-size: 1.1em;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.codigo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+  margin-bottom: 40px;
+}
+
+.codigo-card {
+  background: white;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.codigo-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #3498db, #2ecc71);
+}
+
+.codigo-card.github::before {
+  background: linear-gradient(90deg, #333, #666);
+}
+
+.codigo-card.docs::before {
+  background: linear-gradient(90deg, #e74c3c, #e67e22);
+}
+
+.codigo-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.codigo-icon {
+  font-size: 3.5em;
+  margin-bottom: 15px;
+}
+
+.codigo-card h3 {
+  color: #2c3e50;
+  margin: 0 0 15px 0;
+  font-size: 1.5em;
+}
+
+.codigo-card p {
+  color: #7f8c8d;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.codigo-button {
+  display: inline-block;
+  padding: 12px 30px;
+  background: #3498db;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.codigo-button:hover {
+  background: #2980b9;
+  transform: scale(1.05);
+}
+
+.codigo-button.disabled {
+  background: #95a5a6;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.codigo-button.github {
+  background: #333;
+}
+
+.codigo-button.github:hover {
+  background: #000;
+}
+
+.codigo-button.docs {
+  background: #e74c3c;
+}
+
+.codigo-button.docs:hover {
+  background: #c0392b;
+}
+
+.codigo-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  background: #e8f4f8;
+  color: #3498db;
+  border-radius: 12px;
+  font-size: 0.85em;
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+.codigo-badge.pronto {
+  background: #fef5e7;
+  color: #f39c12;
+}
+
+/* Tech Stack */
+.codigo-tech-section {
+  background: white;
+  border-radius: 12px;
+  padding: 35px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+
+.codigo-tech-section h3 {
+  color: #2c3e50;
+  margin-top: 0;
+  margin-bottom: 25px;
+  font-size: 1.8em;
+  text-align: center;
+}
+
+.codigo-tech-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+}
+
+.codigo-tech-item {
+  text-align: center;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.codigo-tech-item:hover {
+  background: #e8f4f8;
+  transform: translateY(-3px);
+}
+
+.codigo-tech-icon {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+}
+
+.codigo-tech-item h4 {
+  margin: 0 0 8px 0;
+  color: #2c3e50;
+  font-size: 1.1em;
+}
+
+.codigo-tech-item p {
+  margin: 0;
+  color: #7f8c8d;
+  font-size: 0.9em;
+  line-height: 1.4;
 }
 
 /* Código de objetivo-item está en SECCIÓN INICIO */
@@ -868,6 +1044,23 @@ pre {
   gap: 1em;
   margin: 0;
   padding: 0 1em;
+}
+
+.linkedin-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 10px;
+  background-color: #0077B5; /* Color oficial de LinkedIn */
+  color: white;
+  text-decoration: none;
+  border-radius: 100%;
+}
+.linkedin-btn i {
+
+  font-size: 20px;
+}
+.linkedin-btn:hover {
+  background-color: #005983;
 }
 
 .integrante {

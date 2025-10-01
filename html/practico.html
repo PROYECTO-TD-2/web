@@ -6,7 +6,6 @@
     <link rel="icon" href="../media/img/logos/logo_mathlabint_light.webp" />
     <title>MATHLABINT - Felarte, Fernández, Galo, Inojosa, Larrañaga</title>
     <link href="../css/style.css" rel="stylesheet" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
   </head>
 
   <body>
@@ -62,156 +61,178 @@
 
         <h2>Estado actual</h2>
 
-
-
-        <h2>Desafíos encontrados</h2>
         <div class="objetivo-item">
-          <h3>Agosto 8</h3>
+          <h3>Del inicio al presente</h3>
           <p>
-            El proyecto aún no había comenzado en la práctica, solo se
-            planteaban ideas generales de hardware, software e integración de
-            IA.
+            Desde la idea inicial del proyecto hasta investigar sobre cómo usar Micro:Bits e inteligencia artificial para aplicar estos conocimientos, nos enfocamos en explorar los sensores del Micro:Bit y la integración de las tecnologías, consiguiendo avances por nuestros propios medios. <br>
+            La meta fue clara: conectar datos reales del entorno (como temperatura o movimiento) con ejercicios matemáticos y científicos que hagan las clases más prácticas y relevantes para estudiantes y docentes, todo a través de Micro:bit.
           </p>
         </div>
 
         <div class="objetivo-item">
-          <h3>Agosto 12</h3>
+          <h3>Resolución de problemas</h3>
           <p>
-            No se asignaron tareas específicas, quedando pendiente definir
-            responsabilidades claras para avanzar.
+            Validamos el flujo completo: los Micro:Bits capturan datos (ej: temperaturas de 25°C) y los envían a un servidor que, con IA, genera ejercicios personalizados (ej: “¿Cuál es la temperatura media?”).<br>
+            Resolvimos errores técnicos internos y desarrollamos una interfaz para que el profesor vincule su Micro:Bit al sistema. Estamos probando sensores (acelerómetro, luz, brújula, micrófono) y optimizando la comunicación entre las placas de estudiante y docente.
           </p>
         </div>
 
         <div class="objetivo-item">
-          <h3>Agosto 15</h3>
-          <p>
-            Necesidad de simplificar el modelo físico inicial y limitar el uso
-            de sensores para poder arrancar sin trabas.
+          <h3>Próximos pasos</h3>
+          <p>Mejorar la sincronización entre los Micro:Bits para evitar retrasos y complejizarlos ampliando los ejercicios con más sensores (ej: movimiento para física). <br>
+            Agregar más documentación visual (fotos/videos) con descripciones claras, como pidió el profe. <br>
+            Testear el sistema con estudiantes y docentes reales.
           </p>
         </div>
+
+        <h2>Objetivos</h2>
 
         <div class="objetivo-item">
-          <h3>Agosto 22</h3>
-          <p>
-            Las respuestas de la API resultaban genéricas; dificultad para
-            decidir si guardar prompts anteriores o no.
-          </p>
-        </div>
-
-        <div class="objetivo-item">
-          <h3>Agosto 29</h3>
-          <p>
-            Problemas con la señal de los micro:bits a larga distancia, mensajes
-            demasiado largos para el display y lecturas repetidas de
-            temperatura. También se encontraron complicaciones al compilar
-            código y al adjuntar imágenes en la página.
-          </p>
-        </div>
-
-        <h2>Código fuente y documentación</h2>
-        <p>
-          El código fuente y los diagramas técnicos se actualizarán conforme
-          avance el desarrollo. Toda la documentación estará disponible para fomentar la colaboración educativa.
+  
+          <h3>​​✅​​ Completos</h3> <br>
+  
+          <p> <strong>Captura de datos ambientales:</strong>
+            Utilizar los sensores del Micro:bit para recolectar información del entorno (temperatura, inclinación, brújula) y convertirla en datos matemáticos procesables.
+          </p> <br>
+  
+        <p> <strong>Generación de ejercicios:</strong>
+          Implementar Inteligencia Artificial que transforme los datos capturados en ejercicios matemáticos personalizados con diferentes niveles de dificultad.
         </p>
-
-        <pre>
-          <code class="language-python">
-            # microbit-connection/profesor/emisor.py
   
-  
-            from microbit import *
-            import radio
-            
-            radio.on()
-            radio.config(group=1)
-            
-            # Variable para guardar si hay que enviar temperatura
-            enviar_temperatura = False
-            
-            while True:
-                # --- Recepción por radio ---
-                msg = radio.receive()
-                if msg:
-                    display.show(Image.YES)
-                    sleep(500)
-                    display.clear()
-            
-                    parts = msg.split("|")
-                    if len(parts) == 3:
-                        sensor, premisa, nivel = parts
-                        display.scroll("Sensor:" + sensor)
-                        display.scroll("Nivel:" + nivel)
-            
-                        # Si el sensor es temperatura, activamos flag
-                        if sensor.lower() == "temperatura":
-                            
-                            enviar_temperatura = True
-                        else:
-                            enviar_temperatura = False
-                    else:
-                        display.scroll(msg)  # fallback si el formato no coincide
-            
-                # --- Botón A para enviar temperatura ---
-                if enviar_temperatura and button_a.is_pressed():
-                    temp = temperature()  # función de micro:bit que devuelve temperatura en °C
-                    radio.send(str(temp))
-                    display.show(Image.TARGET)
-                    sleep(500)
-                    display.clear()
-                    enviar_temperatura = False  # solo enviamos una vez por presión
-            
-          </code>
-        </pre>
-  
-        <pre>
-          <code class="language-python">
-            # microbit-connection/profesor/emisor.py
-  
-  
-            from microbit import *
-            import radio
-            
-            # Encender radio y configurar grupo
-            radio.on()
-            radio.config(group=1,power=7)
-            
-            # Inicializar UART
-            uart.init(baudrate=115200)
-            
-            while True:
-                # --- UART → RADIO --- UART (Universal Asynchronous Receiver/Transmitter)
-                if uart.any():
-                    serial_data = uart.readline()
-                    if serial_data:
-                        message = serial_data.decode('utf-8').strip()
-                        
-                        # Enviar al alumno por radio
-                        radio.send(message)
-                        
-                        # Feedback visual
-                        display.show(Image.CHESSBOARD)
-                        sleep(300)
-                        display.clear()
-                # --- RADIO → UART ---
-                msg = radio.receive()
-                if msg:
-                    # Mostrar feedback visual
-                    display.show(Image.YES)
-                    sleep(300)
-                    display.clear()
-            
-                    # Reenviar al navegador
-                    uart.write(msg + "\n")
-                
-                sleep(100)
-          </code>
-        </pre>
-
-        <div class="placeholder-media">
-          
-          <a href="https://github.com/PROYECTO-TD-2" target="_blank" rel="noopener noreferrer">💻 [Repositorio GitHub]</a> <br />
-          <a href="https://drive.google.com/drive/folders/1dOEQ4jZyRrezkVYM9cb-8yy3i3BqzTWL?usp=sharing" target="_blanck" rel="noopener noreferrer">📝 [Documentación completa - Próximamente]</a>
         </div>
+  
+        <div class="objetivo-item">
+  
+          <h3>​💭​ Encaminados</h3> <br>
+  
+        <p> <strong>Documentación educativa abierta:</strong>
+          Crear guías y tutoriales de uso (como este sitio) para que otras instituciones puedan replicar y adaptar el proyecto a sus propias necesidades.
+        </p> <br>
+  
+        <p> <strong>Interfaz docente intuitiva:</strong>
+          Desarrollar una plataforma web donde profes puedan configurar parámetros, visualizar datos recopilados y ver los ejercicios generados.
+        </p>
+  
+        </div>
+  
+        <div class="objetivo-item">
+  
+          <h3>⏯️​ Tentativos</h3> <br>
+  
+          <p> <strong>Geometría tangible:</strong>
+            Implementar medidores de formas geométricas con sensores para comprender conceptos espaciales.
+          </p> <br>
+  
+          <p> <strong>Integración avanzada de sensores:</strong>
+            Combinar múltiples sensores del Micro:bit y establecer comunicación entre placas para capturar datos complejos en tiempo real y generar ejercicios matemáticos más ricos y contextualizados.
+          </p>
+  
+        </div>
+        
+        <div class="codigo-section">
+
+          <h2>💻 Código fuente y documentación</h2>
+  
+          <div class="codigo-intro">
+              <p>
+                  Nuestro proyecto es <strong>open source</strong>. Todo el código, documentación y recursos están disponibles 
+                  para la comunidad educativa. Creemos en el aprendizaje colaborativo y transparente.
+              </p>
+          </div>
+  
+          <div class="codigo-grid">
+              <!-- GitHub -->
+              <div class="codigo-card github">
+                  <div class="codigo-icon">📦</div>
+                  <h3>Repositorio GitHub</h3>
+                  <p>
+                      Accedé al código completo del proyecto: programación de micro:bits, 
+                      integración con IA, y toda la lógica de generación de ejercicios.
+                  </p>
+                  <a href="https://github.com/PROYECTO-TD-2" target="_blank" rel="noopener noreferrer" class="codigo-button github">
+                      Ver en GitHub
+                  </a>
+                  <div class="codigo-badge">Open Source</div>
+              </div>
+  
+              <!-- Documentación -->
+              <div class="codigo-card docs">
+                  <div class="codigo-icon">📚</div>
+                  <h3>Documentación Técnica</h3>
+                  <p>
+                      Guías completas de implementación, tutoriales de uso, 
+                      y documentación detallada del proyecto para docentes y desarrolladores.
+                  </p>
+                  <a href="#" class="codigo-button docs disabled">
+                      Próximamente
+                  </a>
+                  <div class="codigo-badge pronto">En desarrollo</div>
+              </div>
+  
+              <!-- Recursos adicionales -->
+              <div class="codigo-card">
+                  <div class="codigo-icon">🛠️</div>
+                  <h3>Recursos Didácticos</h3>
+                  <p>
+                      Material complementario, ejemplos de ejercicios generados, 
+                      y guías para implementar MathLabInt en el aula.
+                  </p>
+                  <a href="#" class="codigo-button disabled">
+                      Próximamente
+                  </a>
+                  <div class="codigo-badge pronto">En desarrollo</div>
+              </div>
+          </div>
+  
+          <!-- Tech Stack -->
+          <div class="codigo-tech-section">
+              <h3>⚙️ Tecnologías utilizadas</h3>
+              <div class="codigo-tech-grid">
+                  <div class="codigo-tech-item">
+                      <div class="codigo-tech-icon">🔲</div>
+                      <h4>Micro:bit</h4>
+                      <p>Hardware principal para captura de datos</p>
+                  </div>
+  
+                  <div class="codigo-tech-item">
+                      <div class="codigo-tech-icon">🐍</div>
+                      <h4>Python</h4>
+                      <p>MicroPython para desarrollo avanzado</p>
+                  </div>
+  
+                  <div class="codigo-tech-item">
+                      <div class="codigo-tech-icon">💻</div>
+                      <h4>VS Code</h4>
+                      <p>Entorno de desarrollo</p>
+                  </div>
+  
+                  <div class="codigo-tech-item">
+                      <div class="codigo-tech-icon">🤖</div>
+                      <h4>IA</h4>
+                      <p>Generación de contenido educativo</p>
+                  </div>
+  
+                  <div class="codigo-tech-item">
+                      <div class="codigo-tech-icon">🌐</div>
+                      <h4>ngrok</h4>
+                      <p>Túneles para pruebas remotas</p>
+                  </div>
+  
+                  <div class="codigo-tech-item">
+                      <div class="codigo-tech-icon">📝</div>
+                      <h4>GitHub</h4>
+                      <p>Control de versiones</p>
+                  </div>
+  
+                  <div class="codigo-tech-item">
+                      <div class="codigo-tech-icon">📋</div>
+                      <h4>Trello</h4>
+                      <p>Gestión de proyecto</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+        
       </section>
 
       <div class="contenedor-flecha">
@@ -221,8 +242,6 @@
       </div>
     </main>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
     <script defer type="text/javascript" src="../js/script.js"></script>
   </body>
 </html>

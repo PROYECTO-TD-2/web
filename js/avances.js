@@ -200,7 +200,7 @@ const avancesData = {
             media: [
                 {
                     type: "image",
-                    src: "../media/img/avances/2025-09-12_capturadepantalla.png",
+                    src: "../media/img/avances/2025-09-19_capturadepantalla.png",
                     caption: "La meta es trabajar en la web profesor para mostrar de forma más eficiente la información. Además de esto, se busca trabajar en la respuesta de la API para asegurarse de la efectividad.<br>19:16 se logra crear un ejercicio como tal con un buen interfaz. Profesor propone la idea de agregar múltiple opción seleccionable a futuro, donde se puede marcar la respuesta antes de mostrar el resultado."
                 },
                 {
@@ -212,7 +212,7 @@ const avancesData = {
         },
         {
             date: "26 de septiembre",
-            preview: "../media/img/avances/2025-09-19_capturadepantalla.png",
+            preview: "../media/img/avances/2025-09-26_19.28.00.jpg",
             description: "Cuando el sistema entre en el clavo",
             media: [
                 {
