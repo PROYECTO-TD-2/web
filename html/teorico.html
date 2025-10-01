@@ -35,10 +35,140 @@
 
   <main>
 
+    <div class="summary-container">
+      <div class="summary-header" onclick="toggleSummary()">
+          <h3>📋 ¿Qué es MathLabInt?</h3>
+          <span class="summary-toggle" id="toggle-icon">▼</span>
+      </div>
+      <div class="summary-content" id="summary-content">
+          <p>
+              <strong>MathLabInt</strong> (Laboratorio de Matemáticas Interactivo) es una herramienta educativa que usa sensores de Micro:bit para capturar datos del entorno y transformarlos en ejercicios matemáticos personalizados mediante Inteligencia Artificial.
+          </p>
+          <p>
+              <strong>Propósito:</strong> Crear nuevas formas de enseñar matemáticas conectando el mundo físico con conceptos abstractos, facilitando el aprendizaje práctico en Matemáticas, Física y Química.
+          </p>
+      </div>
+  </div>
+
     <section id="teorico">
       <h1>TEÓRICO</h1>
 
-      <h2>Hardware</h2>
+      <h2>⚙️ Hardware</h2>
+        
+      <h3>👾 ¿Qué es micro:bit?</h3>
+      <p>
+          El micro:bit es una pequeña computadora programable diseñada para hacer que aprender y enseñar sea fácil y divertido. 
+          Incluye sensores de temperatura, acelerómetro, brújula, pantalla LED de 5×5, Bluetooth y conectores para componentes externos.
+      </p>
+
+      <div class="microbit-gallery-container">
+        <div class="microbit-img-wrapper" id="microbitImgWrapper">
+            <img 
+                src="../media/img/complementos/microbit_1.webp" 
+                alt="Micro:bit - Click para ver más" 
+                class="microbit-gallery-img"
+                id="microbitGalleryImg"
+            >
+            <span class="microbit-click-hint" id="microbitClickHint">👆 Click para cambiar</span>
+        </div>
+
+        <div class="microbit-img-info">
+            <div class="microbit-img-counter">
+                <span class="microbit-counter-dot microbit-active"></span>
+                <span class="microbit-counter-dot"></span>
+                <span class="microbit-counter-dot"></span>
+            </div>
+        </div>
+
+        <div class="microbit-link-container">
+            <a href="https://microbit.org/es-es/get-started/what-is-the-microbit" target="_blank" rel="noopener noreferrer" class="microbit-official-link">
+                🔗 Más info sobre micro:bit
+            </a>
+        </div>
+    </div>
+
+      <h3>Componentes utilizados</h3>
+      <div class="materials-grid">
+          <div class="material-card">
+              <strong>Microcontroladores</strong>
+              <p>2 placas micro:bit para captura de datos y comunicación entre dispositivos</p>
+          </div>
+          <div class="material-card">
+              <strong>Cables USB</strong>
+              <p>Para programación de las micro:bits y suministro de energía</p>
+          </div>
+          <div class="material-card">
+              <strong>Sensores integrados</strong>
+              <p>Temperatura, acelerómetro, brújula y sensores de luz ya incluidos en las placas</p>
+          </div>
+      </div>
+
+      <h2>💻 Software</h2>
+        
+        <h3>Plataforma de programación</h3>
+        <p>
+          Utilizamos <a href="https://python.microbit.org" target="_blank" rel="noopener noreferrer"><strong>Python Micro:bit</strong></a> para primeras pruebas y desarrollo. 
+          El entorno de desarrollo incluye <a href="https://code.visualstudio.com/" target="_blank" rel="noopener noreferrer"><strong>Visual Studio Code</strong></a> como editor de código principal,
+          <a href="https://ngrok.com/" target="_blank" rel="noopener noreferrer"><strong>ngrok</strong></a> para túneles y pruebas remotas con respecto a la conexión virtual del proyecto, y <a href="https://www.ibm.com/es-es/think/topics/ai-model" target="_blank" rel="noopener noreferrer"><strong>modelos de IA</strong></a> para la generación de contenido educativo.
+      </p>
+
+        <div class="highlight">
+            <strong>🤖 Inteligencia Artificial</strong>
+            <p>
+                Implementamos herramientas de IA para procesar los datos capturados por los sensores y generar automáticamente 
+                ejercicios educativos personalizados, adaptados a diferentes niveles de dificultad.
+            </p>
+        </div>
+
+        <h3>Herramientas de desarrollo</h3>
+        <div class="tools-list">
+            <ul>
+                <li><strong>Computadoras portátiles/escritorio:</strong> Para programación y documentación del proyecto.</li>
+                <li><strong>Conexión a Internet:</strong> Acceso al proyecto en línea, servicios de IA y repositorios varios.</li>
+                <li><strong>GitHub:</strong> Repositorio para código fuente y control de versiones.</li>
+                <li><strong>Trello:</strong> Gestión de tareas y organización del equipo.</li>
+                <li><strong>Uruguay Educa / ANEP:</strong> Fuentes de contenido educativo oficial.</li>
+            </ul>
+        </div>
+
+        <h2>🎓 Disciplinas integradas</h2>
+        
+        <p>
+            Este proyecto combina múltiples áreas del conocimiento para crear una experiencia de aprendizaje rica e interdisciplinaria, 
+            siguiendo el enfoque <strong>STEAM</strong> (Ciencia, Tecnología, Ingeniería, Artes y Matemáticas).
+        </p>
+
+        <div class="materials-grid">
+            <div class="material-card">
+                <strong>📐 Matemáticas</strong>
+                <p>Aplicación práctica de conceptos mediante datos reales capturados por sensores.</p>
+            </div>
+            <div class="material-card">
+                <strong>💾 Programación</strong>
+                <p>Base de todo el proyecto para su funcionamiento; desarrollo de pensamiento lógico y computacional.</p>
+            </div>
+            <div class="material-card">
+                <strong>🎨 Diseño y documentación</strong>
+                <p>Creación de interfaces, documentación visual y experiencia de usuario.</p>
+            </div>
+            <div class="material-card">
+                <strong>👨‍🏫 Pedagogía</strong>
+                <p>Aprendizaje basado en proyectos y enseñanza de la tecnología.</p>
+            </div>
+            <div class="material-card">
+                <strong>🔬 Física y química</strong>
+                <p>Medición de variables físicas como temperatura, movimiento y orientación espacial</p>
+            </div>
+        </div>
+
+        <div class="highlight">
+            <p>
+                Fomentamos el aprendizaje práctico e interdisciplinario donde el estudiantado no solo aprende teoría, 
+                sino que experimenta, crea y resuelve problemas pudiendo aplicar conocimientos de múltiples disciplinas.
+            </p>
+        </div>
+
+      <!--<h2>Hardware</h2>
       <div class="material-grid">
         <div class="material-item">
           <h4>🔲 ¿Qué es micro:bit?</h4>
@@ -70,7 +200,7 @@
           <h4>📺 Display LCD</h4>
           <p>Pantalla 16x2 para mostrar resultados y menús</p>
         </div>
-      </div> -->
+      </div>
 
       <h2>Software</h2>
       <p>Utilizamos MakeCode para programar los micro:bit y herramientas de inteligencia
@@ -103,8 +233,13 @@
           <strong>Plataformas digitales</strong>
           (GitHub -repositorio-, Trello -gestión de tareas-, Google Meet -reuniones-, Uruguay Educa / ANEP -fuentes de contenido-)
         </div>
-      </div>
+      </div> -->
     </section>
+
+    <div class="contenedor-flecha">
+      <a href=".." class="arrow-link">⬅️​</a> 
+      <a href="avances.html" class="arrow-link">➡️</a>
+    </div>
 
   </main>
 
