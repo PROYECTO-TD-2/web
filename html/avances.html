@@ -28,9 +28,16 @@
         <li><a href="#">Avances</a></li>
         <li><a href="practico.html">Práctico</a></li>
         <li><a href="epilogo.html">Epílogo</a></li>
+        <li>
+          <select id="languageSelector" onchange="changeLanguage(this.value)">
+            <option value="es">🇺🇾 ES</option>
+            <option value="en">🇺🇸 EN</option>
+            <option value="pt">🇧🇷 PT</option>
+          </select>
+        </li>
       </ul>
-
     </nav>
+    <div id="google_translate_element" style="display: none;"></div>
   </header>
 
   <main>
@@ -125,8 +132,10 @@
   </main>
 
 
-  <script defer type="text/javascript" src="../js/script.js"></script>
+  <script src="../js/traductor.js"></script>
+  <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
   <script src="../js/avances.js"></script>
+  <script defer type="text/javascript" src="../js/script.js"></script>
 </body>
 
 </html>

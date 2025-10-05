@@ -30,8 +30,16 @@
           <li><a href="html/avances.html">Avances</a></li>
           <li><a href="html/practico.html">Práctico</a></li>
           <li><a href="html/epilogo.html">Epílogo</a></li>
+          <li>
+            <select id="languageSelector" onchange="changeLanguage(this.value)">
+              <option value="es">🇺🇾 ES</option>
+              <option value="en">🇺🇸 EN</option>
+              <option value="pt">🇧🇷 PT</option>
+            </select>
+          </li>
         </ul>
       </nav>
+      <div id="google_translate_element" style="display: none;"></div>
     </header>
 
     <main>
@@ -81,6 +89,28 @@
           </div>
       </div>
 
+        <!-- Slides -->
+        <div class="simple-carousel-wrapper">
+          <div class="simple-carousel-slides" id="simpleCarouselSlides">
+              <div class="simple-carousel-slide">
+                  <img src="media/img/avances/2025-09-05_20.30.00.jpg">
+              </div>
+              <div class="simple-carousel-slide">
+                  <img src="media/img/avances/2025-09-26_19.28.00.jpg">
+              </div>
+              <div class="simple-carousel-slide">
+                  <img src="media/img/avances/2025-08-15_20.25.01.jpg"">
+              </div>
+              <div class="simple-carousel-slide">
+                <img src="media/img/avances/2025-08-29_19.29.06.jpg"">
+            </div>
+            <div class="simple-carousel-slide">
+              <img src="media/img/avances/2025-08-15_20.25.02.jpg"">
+          </div>
+          </div>
+      </div>
+  </div>
+
         <h2>Proyecto</h2>
 
         <div class="intro-points">
@@ -106,34 +136,14 @@
             <div class="simple-carousel-progress-bar" id="simpleProgressBar"></div>
         </div>
 
-        <!-- Slides -->
-        <div class="simple-carousel-wrapper">
-            <div class="simple-carousel-slides" id="simpleCarouselSlides">
-                <div class="simple-carousel-slide">
-                    <img src="media/img/avances/2025-09-12_19.59.00.png">
-                </div>
-                <div class="simple-carousel-slide">
-                    <img src="media/img/avances/2025-09-26_19.28.00.jpg">
-                </div>
-                <div class="simple-carousel-slide">
-                    <img src="media/img/avances/2025-08-15_20.25.01.jpg"">
-                </div>
-                <div class="simple-carousel-slide">
-                  <img src="media/img/avances/2025-08-29_19.29.06.jpg"">
-              </div>
-              <div class="simple-carousel-slide">
-                <img src="media/img/avances/2025-08-15_20.25.02.jpg"">
-            </div>
-            </div>
-        </div>
-    </div>
-
       </section>
 
       <div class="contenedor-flecha"><a href="html/teorico.html" class="arrow-link">➡️</a></div>
       
     </main>
 
+    <script src="js/traductor.js"></script>
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <script defer type="text/javascript" src="js/script.js"></script>
     <script src="js/inicio.js"></script>
   </body>

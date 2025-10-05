@@ -67,13 +67,17 @@ nav {
 }
 
 /* Logo del nav */
-.logo { display: flex; }
+.logo {
+  display: flex;
+  margin-right: 5%;
+}
 
 .logo img {
   max-width: 75px;
   height: auto;
   border-radius: 50%;
   padding: 5px;
+  transition: opacity 1s ease;
 }
 
 /* Navegación móvil */
@@ -92,14 +96,14 @@ nav {
 }
 
 .nav-list.active {
-  max-height: 300px;
+  max-height: 600px;
 }
 
 .nav-list li {
   text-align: center;
 }
 
-.nav-list a {
+.nav-list a, .nav-list div {
   display: block;
   padding: 1em 1em;
   color: var(--color-claro);
@@ -119,7 +123,7 @@ nav {
   padding: 0.5rem;
   position: relative;
   z-index: 1001;
-  margin-left: 2%;
+  margin-left: 5%;
 }
 
 .bar {
@@ -143,6 +147,50 @@ nav {
   transform: translateY(-8px) rotate(-45deg);
 }
 
+#languageSelector {
+  background: transparent;
+  border: none;
+  color: inherit;
+  padding: 10px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px; /* 16px mínimo en móvil para evitar zoom en iOS */
+  font-family: inherit;
+  transition: all 0.3s ease;
+  outline: none;
+  width: 100%;
+  text-align: center;
+  margin: 5px 0;
+}
+
+#languageSelector:hover {
+  opacity: 0.8;
+}
+
+#languageSelector option {
+  background: white;
+  color: #333;
+  padding: 10px;
+  font-size: 1em;
+}
+
+/* Ocultar banner molesto de Google */
+.goog-te-banner-frame.skiptranslate {
+  display: none !important;
+}
+
+body {
+  top: 0 !important;
+}
+
+.skiptranslate {
+  display: none !important;
+}
+
+/* Ocultar el widget de Google (solo usamos su funcionalidad) */
+#google_translate_element {
+  display: none !important;
+}
 
 /* ===== FIN HEADER Y NAVEGACIÓN (MOBILE FIRST) ===== */
 
@@ -377,48 +425,24 @@ p {
   border-left: 4px solid #3498db;
 }
 
-.simple-carousel-container {
-  width: 100%;
-  background: white;
-  border-radius: 1em;
-  overflow: hidden;
-  box-shadow: 0 .25em 1em rgba(0,0,0,0.1);
-}
-
-/* Barra de progreso */
-.simple-carousel-progress {
-  width: 100%;
-  height: 4px;
-  background: #ecf0f1;
-  position: relative;
-  overflow: hidden;
-}
-
-.simple-carousel-progress-bar {
-  height: 100%;
-  background: #3498db;
-  width: 0%;
-  transition: width 5s linear;
-}
-
-.simple-carousel-progress-bar.simple-active {
-  width: 100%;
-}
-
 /* Carrusel */
 .simple-carousel-wrapper {
   position: relative;
   width: 100%;
   overflow: hidden;
+  height: 400px;
+  border-radius: 1em;
 }
 
 .simple-carousel-slides {
   display: flex;
+  height: 100%;
   transition: transform 0.5s ease-in-out;
 }
 
 .simple-carousel-slide {
   min-width: 100%;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -426,7 +450,10 @@ p {
 
 .simple-carousel-slide img {
   width: 100%;
+  height: 100%;
   display: block;
+  object-fit: cover; /* ESTO ES LO CLAVE */
+  object-position: center; /* Centra la imagen al recortarla */
 }
 
 .objetivo-item {
@@ -1128,6 +1155,21 @@ p {
     max-width: 100px;
   }
 
+  #languageSelector {
+    width: auto;
+    padding: 8px 12px;
+    margin: 0;
+    text-align: left;
+  }
+
+  #languageSelector:hover {
+    transform: scale(1.05);
+  }
+
+  #languageSelector option {
+    font-size: 1em;
+  }
+
   /* Layout principal desktop */
   main {
     max-width: 1200px;
@@ -1142,11 +1184,13 @@ p {
     max-width: 300px;
     max-height: 300px;
   }
-  .simple-carousel-container {
-    margin: 0 auto;
-    max-width: 50%;
-}
 
+  .simple-carousel-wrapper {
+    max-width: 600px;
+    height: 600px; /* Altura fija en desktop */
+    margin: 0 auto;
+  }
+  
   .arrow-link:hover {
     background: #2980b9;
     transform: translateX(5px) scale(1.5);

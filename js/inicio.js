@@ -66,5 +66,5 @@ function simpleNextSlide() {
 // Iniciar con la primera slide
 simpleGoToSlide(0);
 
-// Cambiar slide cada 2 segundos
+// Cambiar slide cada 5 segundos
 setInterval(simpleNextSlide, simpleSlideInterval);

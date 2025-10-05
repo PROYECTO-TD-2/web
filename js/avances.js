@@ -306,10 +306,6 @@ function avancesRenderMonths() {
         container.appendChild(monthDiv);
     });
 
-    // Expandir el primer mes por defecto
-    if (Object.keys(avancesData).length > 0) {
-        avancesToggleMonth(0);
-    }
 }
 
 // Toggle mes
