@@ -254,6 +254,101 @@ const avancesData = {
                     type: "image",
                     src: "../media/img/avances/2025-09-26_20.13.00.jpg",
                     caption: "En pantalla se puede observar la respuesta. Enjoy it!"
+                }               
+            ]
+        }
+    ],
+    "Octubre 2025": [
+        {
+            date: "3 de octubre",
+            preview: "../media/img/avances/2025-10-03_capturadepantalla1.png",
+            description: "Dedicación del sitio y correcciones de octubre",
+            media: [
+                {
+                    type: "image",
+                    src: "../media/img/avances/2025-10-03_capturadepantalla1.png",
+                    caption: "Mejoras en la interfaz web del proyecto y corrección de errores menores de navegación."
+                },
+                {
+                    type: "image",
+                    src: "../media/img/avances/2025-10-03_capturadepantalla2.png",
+                    caption: "Se integró un sistema de traducción automática al sitio, permitiendo visualizar el contenido en español, inglés y portugués para mayor accesibilidad."
+                },
+                {
+                    type: "image",
+                    src: "../media/img/avances/2025-10-03_capturadepantalla3.png",
+                    caption: "El equipo presentó los avances del proyecto en clase, mostrando el estado actual de desarrollo y recibiendo feedback constructivo."
+                }
+            ]
+        },
+        {
+            date: "10 de octubre",
+            preview: "../media/img/avances/2025-10-10_20.04.00.jpeg",
+            description: "Jornada de expansión del hardware y documentación técnica",
+            media: [
+                {
+                    type: "image",
+                    src: "../media/img/avances/2025-10-10_20.04.00.jpeg",
+                    caption: "El equipo trabajó en la incorporación de sensores externos al micro:bit, específicamente explorando la conexión de un potenciómetro mediante protoboard, placa expansora y cableado apropiado."
+                },
+                {
+                    type: "image",
+                    src: "../media/img/avances/2025-10-10_20.04.02.jpeg",
+                    caption: "Durante la investigación técnica y verificación de componentes, se identificó que el sensor adecuado para nuestros objetivos es un rotary encoder, realizándose los ajustes correspondientes en el diseño y programación."
+                },
+                {
+                    type: "image",
+                    src: "../media/img/avances/2025-10-10_capturadepantalla1.png",
+                    caption: "Inicio del proceso de documentación técnica detallada, sentando las bases para futuras réplicas y mejoras del proyecto."
+                },
+                {
+                    type: "image",
+                    src: "../media/img/avances/2025-10-10_20.04.01.jpeg",
+                    caption: "Logro significativo: implementación exitosa del rotary encoder, estableciendo comunicación bidireccional con el micro:bit y validando la transmisión de datos en tiempo real."
+                }
+            ]
+        },
+        {
+            date: "17 de octubre",
+            preview: "../media/img/avances/2025-10-17_19.21.00.jpeg",
+            description: "Jornada de experimentación hardware-software",
+            media: [
+                {
+                    type: "image",
+                    src: "../media/img/avances/2025-10-17_19.21.00.jpeg",
+                    caption: "Integración exitosa del rotary encoder al micro:bit mediante protoboard y programación en MicroPython."
+                },
+                {
+                    type: "image",
+                    src: "../media/img/avances/2025-10-17_19.21.01.jpeg",
+                    caption: "El sistema detecta la dirección de rotación (horaria o antihoraria) y representa visualmente el movimiento en la pantalla LED con imágenes de reloj, recorriendo 11 posiciones distintas."
+                },
+                {
+                    type: "video",
+                    src: "../media/vid/avances/2025-10-17_19.21.02.mp4",
+                    caption: "Se implementó lógica de lectura de flancos para interpretación precisa de los giros del encoder."
+                },
+                {
+                    type: "image",
+                    src: "../media/img/avances/2025-10-17_capturadepantalla1.png",
+                    caption: "Paralelamente, se publicó la interfaz web prototipo para uso docente-estudiantil, disponible en línea para pruebas de generación de ejercicios matemáticos."
+                }
+            ]
+        },
+        {
+            date: "31 de octubre",
+            preview: "../media/img/avances/2025-10-31_capturadepantalla1.png",
+            description: "Cuando el proyecto llega a su fin",
+            media: [
+                {
+                    type: "image",
+                    src: "../media/img/avances/2025-10-31_capturadepantalla1.png",
+                    caption: "Carga y organización de todos los avances del proyecto al sitio web, incorporando material fotográfico, videos y descripciones detalladas de cada jornada de trabajo."
+                },
+                {
+                    type: "image",
+                    src: "../media/img/logos/logo_mathlabint_mix.webp",
+                    caption: "La documentación técnica formal y los recursos didácticos complementarios se encuentran en desarrollo final por parte del equipo."
                 }
             ]
         }
