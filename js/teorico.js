@@ -49,10 +49,3 @@ microbitImgWrapper.addEventListener('click', () => {
         microbitImgWrapper.classList.remove('microbit-changing');
     }, 150);
 });
-
-// Ocultar hint después de 5 segundos si no hubo click
-setTimeout(() => {
-    if (!microbitHasClicked) {
-        microbitImgWrapper.classList.add('microbit-hide-hint');
-    }
-}, 5000);

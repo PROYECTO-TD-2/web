@@ -962,7 +962,7 @@ p {
 }
 
 .codigo-button.docs {
-  background: #e74c3c;
+  background: var(--verde-esmeralda);
 }
 
 .codigo-button.docs:hover {
@@ -1041,6 +1041,462 @@ p {
 /* Código de objetivo-item está en SECCIÓN INICIO */
 
 
+/* === SUB-PÁGINA DE PRÁCTICO: DOCUMENTACIÓN TÉCNICA === */
+
+
+.doc-tecnica-page {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 20px 15px;
+}
+
+.doc-tecnica-page h1 {
+  color: #2c3e50;
+  border-bottom: 4px solid #3498db;
+  padding-bottom: 12px;
+  margin-bottom: 25px;
+  font-size: 1.8em;
+}
+
+.doc-intro {
+  background: #e8f4f8;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 25px;
+  border-left: 5px solid #3498db;
+}
+
+.doc-intro p {
+  margin: 10px 0;
+  color: #2c3e50;
+  line-height: 1.6;
+  font-size: 0.95em;
+}
+
+/* Grid de materiales - móvil */
+.materiales-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  margin-top: 15px;
+}
+
+.material-item {
+  background: #f8f9fa;
+  padding: 15px;
+  border-radius: 8px;
+  border-left: 4px solid #3498db;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.material-item.opcional {
+  border-left-color: #95a5a6;
+}
+
+.material-item strong {
+  display: block;
+  color: #2c3e50;
+  margin-bottom: 8px;
+  font-size: 1.05em;
+}
+
+.material-item p {
+  margin: 0;
+  color: #666;
+  font-size: 0.9em;
+  line-height: 1.4;
+}
+
+.badge-opcional {
+  display: inline-block;
+  background: #95a5a6;
+  color: white;
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 0.75em;
+  margin-top: 8px;
+  font-weight: 600;
+}
+
+/* Tabla de conexiones - móvil */
+.conexiones-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 0.85em;
+  display: block;
+  overflow-x: auto;
+}
+
+.conexiones-table th,
+.conexiones-table td {
+  padding: 10px 8px;
+  text-align: left;
+  border-bottom: 1px solid #ecf0f1;
+}
+
+.conexiones-table th {
+  background: #34495e;
+  color: white;
+  font-weight: 600;
+}
+
+.conexiones-table tr:hover {
+  background: #f8f9fa;
+}
+
+.cable-color {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  margin-right: 6px;
+  vertical-align: middle;
+  border: 2px solid #ddd;
+}
+
+/* Diagrama placeholder */
+.diagram-placeholder {
+  background: #f8f9fa;
+  border: 2px dashed #bdc3c7;
+  padding: 40px 15px;
+  text-align: center;
+  border-radius: 8px;
+  margin: 15px 0;
+  color: #7f8c8d;
+}
+
+.diagram-placeholder img {
+  max-width: 200px;
+}
+
+.diagram-placeholder p {
+  margin: 5px 0;
+  font-size: 1em;
+}
+
+/* Nota importante */
+.nota-importante {
+  background: #fff3cd;
+  border-left: 4px solid #ffc107;
+  padding: 12px;
+  margin: 15px 0;
+  border-radius: 6px;
+  color: #856404;
+  font-size: 0.9em;
+}
+
+/* Link externo */
+.doc-external-link {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 12px 20px;
+  background: #3498db;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  font-size: 0.95em;
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.doc-external-link:hover {
+  background: #2980b9;
+}
+
+/* Flujo lista */
+.flujo-lista {
+  background: #f8f9fa;
+  padding: 15px 15px 15px 35px;
+  border-radius: 8px;
+  margin: 15px 0;
+}
+
+.flujo-lista li {
+  margin: 10px 0;
+  color: #555;
+  line-height: 1.6;
+  font-size: 0.95em;
+}
+
+/* Grid de repos - móvil */
+.repos-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  margin: 15px 0;
+}
+
+.repo-card {
+  background: #f8f9fa;
+  padding: 18px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  display: block;
+}
+
+.repo-card:hover {
+  border-color: #3498db;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.repo-icon {
+  font-size: 2em;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.repo-card strong {
+  display: block;
+  color: #2c3e50;
+  margin-bottom: 8px;
+  font-size: 1.05em;
+}
+
+.repo-card p {
+  margin: 0;
+  color: #7f8c8d;
+  font-size: 0.9em;
+}
+
+/* Botón volver */
+.volver-container {
+  text-align: center;
+  margin-top: 40px;
+  padding-top: 25px;
+  border-top: 2px solid #ecf0f1;
+}
+
+.btn-volver {
+  display: inline-block;
+  padding: 12px 25px;
+  background: #95a5a6;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  font-size: 0.95em;
+}
+
+.btn-volver:hover {
+  background: #7f8c8d;
+}
+
+.doc-accordion {
+  background: white;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  overflow: hidden;
+}
+
+.doc-accordion-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 15px;
+  background: #f8f9fa;
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.3s ease;
+}
+
+.doc-accordion-header:hover {
+  background: #e9ecef;
+}
+
+.doc-accordion-header h3 {
+  margin: 0;
+  color: #2c3e50;
+  font-size: 1.1em;
+}
+
+.doc-accordion-icon {
+  font-size: 18px;
+  transition: transform 0.3s ease;
+  color: #3498db;
+  flex-shrink: 0;
+  margin-left: 10px;
+}
+
+.doc-accordion.active .doc-accordion-icon {
+  transform: rotate(180deg);
+}
+
+.doc-accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+  padding: 0 15px;
+}
+
+.doc-accordion.active .doc-accordion-content {
+  max-height: 5000px;
+  padding: 20px 15px;
+}
+
+.doc-accordion-content p {
+  color: #555;
+  line-height: 1.6;
+  margin: 12px 0;
+  font-size: 0.95em;
+}
+
+.doc-accordion-content ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.doc-accordion-content ul li {
+  padding: 8px 0;
+  padding-left: 25px;
+  position: relative;
+  color: #555;
+  font-size: 0.95em;
+}
+
+.doc-accordion-content ul li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: #3498db;
+  font-weight: bold;
+}
+
+.doc-accordion-content h4 {
+  color: #34495e;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-size: 1.1em;
+}
+
+.material-img {
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  object-fit: contain;
+  border-radius: 8px;
+  margin: 0 auto 12px auto;
+  display: block;
+}
+
+.code-block {
+  background: #282c34;
+  border-radius: 10px;
+  margin: 20px 0;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.code-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+  background: #21252b;
+  border-bottom: 1px solid #181a1f;
+}
+
+.code-language {
+  color: #61dafb;
+  font-size: 0.85em;
+  font-weight: 600;
+  font-family: 'Courier New', monospace;
+  text-transform: uppercase;
+}
+
+.code-copy-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #3498db;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85em;
+  font-family: inherit;
+  transition: all 0.3s ease;
+}
+
+.code-copy-btn:hover {
+  background: #2980b9;
+  transform: scale(1.05);
+}
+
+.code-copy-btn.copied {
+  background: #2ecc71;
+}
+
+.copy-icon {
+  font-size: 1em;
+}
+
+.copy-text {
+  font-weight: 500;
+}
+
+.code-block pre {
+  margin: 0;
+  padding: 15px;
+  overflow-x: auto;
+  background: #282c34;
+}
+
+.code-block code {
+  font-family: 'Fira Code', 'Consolas', 'Monaco', 'Courier New', monospace;
+  font-size: 0.85em;
+  line-height: 1.6;
+  color: #abb2bf;
+  display: block;
+}
+
+/* Syntax highlighting básico */
+.code-block code {
+  /* Comentarios */
+  --comment-color: #5c6370;
+  /* Strings */
+  --string-color: #98c379;
+  /* Keywords */
+  --keyword-color: #c678dd;
+  /* Functions */
+  --function-color: #61dafb;
+  /* Numbers */
+  --number-color: #d19a66;
+}
+
+/* Scrollbar personalizado para el código */
+.code-block pre::-webkit-scrollbar {
+  height: 8px;
+}
+
+.code-block pre::-webkit-scrollbar-track {
+  background: #21252b;
+}
+
+.code-block pre::-webkit-scrollbar-thumb {
+  background: #4b5263;
+  border-radius: 4px;
+}
+
+.code-block pre::-webkit-scrollbar-thumb:hover {
+  background: #5c6370;
+}
+
+
+
 /* ===== FIN SECCIÓN PRÁCTICO - INTERACCIÓN DEL USUARIO (MOBILE FIRST) ===== */
 
 
@@ -1067,31 +1523,29 @@ p {
 
 .integrantes-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(1, 2fr);
   gap: 1em;
   margin: 0;
   padding: 0 1em;
 }
 
-.linkedin-btn {
+.instagram-btn, .linkedin-btn {
   display: inline-flex;
   align-items: center;
   padding: 10px 10px;
-  background-color: #0077B5; /* Color oficial de LinkedIn */
+
   color: white;
   text-decoration: none;
   border-radius: 100%;
 }
-.linkedin-btn i {
 
-  font-size: 20px;
-}
-.linkedin-btn:hover {
-  background-color: #005983;
-}
+.instagram-btn { background-color: #C13584; }
+
+.linkedin-btn { background-color: #0077B5; /* Color oficial de LinkedIn */ }
+
+.linkedin-btn i { font-size: 1.5em; }
 
 .integrante {
-  background-color: white;
   padding: .5em;
   border-radius: 0.8em;
   text-align: center;
@@ -1110,6 +1564,13 @@ p {
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
 }
 
+.integrante img {
+  max-width: 150px;
+  height: 150px;
+  margin-top: 1em;
+  border-radius: 1em;
+}
+
 #epilogo .intro-text {
   font-size: 1em;
   text-align: center;
@@ -1118,6 +1579,7 @@ p {
   border-radius: .5em;
   margin: 1em 0;
 }
+
 
 
 /* ===== FIN SECCIÓN EPÍLOGO - INTERACCIÓN DEL USUARIO (MOBILE FIRST) ===== */
@@ -1227,6 +1689,60 @@ p {
     max-width: 400px;
     border-radius: 1em;
     margin-bottom: 1em;
+}
+
+.diagram-placeholder img {
+  max-width: 1000px;
+}
+
+.doc-accordion-header {
+  padding: 20px;
+}
+
+.doc-accordion-header h3 {
+  font-size: 1.3em;
+}
+
+.doc-accordion-icon {
+  font-size: 20px;
+}
+
+.doc-accordion.active .doc-accordion-content {
+  padding: 20px;
+}
+
+.doc-accordion-content p,
+.doc-accordion-content ul li {
+  font-size: 1em;
+}
+
+.doc-accordion-content h4 {
+  font-size: 1.2em;
+}
+
+.material-img {
+  max-width: 300px;
+}
+
+.code-header {
+  padding: 12px 20px;
+}
+
+.code-language {
+  font-size: 0.9em;
+}
+
+.code-copy-btn {
+  padding: 8px 16px;
+  font-size: 0.9em;
+}
+
+.code-block pre {
+  padding: 20px;
+}
+
+.code-block code {
+  font-size: 0.9em;
 }
 
   .team-container {

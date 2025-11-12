@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="../../media/img/logos/logo_mathlabint_light.webp">
+  <title>MATHLABINT - Felarte, Fernández, Galo, Inojosa, Larrañaga</title>
+  <link href="../../css/style.css" rel="stylesheet" />
+</head>
+
+<body>
+  <header>
+    <nav>
+      <div class="menu-toggle" id="mobile-menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+
+      <div class="logo">
+        <img src="../../media/img/logos/logo_mathlabint_mix.webp" alt="MathLabInt Logo">
+      </div>
+
+      <ul class="nav-list" id="nav-list">
+        <li><a href="../..">Inicio</a></li>
+        <li><a href="../teorico.html">Teórico</a></li>
+        <li><a href="../avances.html">Avances</a></li>
+        <li><a href="../practico.html">Práctico</a></li>
+        <li><a href="../epilogo.html">Epílogo</a></li>
+        <li>
+          <select id="languageSelector" onchange="changeLanguage(this.value)">
+            <option value="es">🇺🇾 ES</option>
+            <option value="en">🇺🇸 EN</option>
+            <option value="pt">🇧🇷 PT</option>
+          </select>
+        </li>
+      </ul>
+    </nav>
+    <div id="google_translate_element" style="display: none;"></div>
+  </header>
+
+  <main>
+    <section class="doc-tecnica-page">
+      <h1>📋 Documentación Técnica</h1>
+      
+      <div class="doc-intro">
+        <p><strong>Fecha límite de entrega:</strong> 14 de noviembre de 2025</p>
+        <p>
+          Esta sección contiene la documentación técnica completa del proyecto MathLabInt, 
+          desarrollado en la asignatura "Laboratorio STEAM+" de la Tecnicatura en Redes y Software 
+          del Instituto Tecnológico de Informática (UTU).
+        </p>
+      </div>
+
+      <!-- Acordeón 1: Descripción -->
+      <div class="doc-accordion">
+        <div class="doc-accordion-header" onclick="toggleDocAccordion(this)">
+          <h3>📝 Descripción del proyecto</h3>
+          <span class="doc-accordion-icon">▼</span>
+        </div>
+        <div class="doc-accordion-content">
+          <p>
+            Herramienta educativa que usa sensores de Micro:bit para capturar información del entorno 
+            (temperatura, inclinación, orientación, sonido, luz) y transformarla en ejercicios matemáticos.
+          </p>
+          <p>
+            Genera automáticamente ejercicios personalizados mediante la integración de Inteligencia Artificial, 
+            basados en los datos recopilados y adaptados a diferentes niveles de dificultad.
+          </p>
+          <p>
+            <strong>Destinatarios:</strong> Profesores y estudiantes de Matemáticas, Física y Química, principalmente.
+          </p>
+        </div>
+      </div>
+
+      <!-- Acordeón 2: Materiales -->
+      <div class="doc-accordion">
+        <div class="doc-accordion-header" onclick="toggleDocAccordion(this)">
+          <h3>🔧 Materiales necesarios</h3>
+          <span class="doc-accordion-icon">▼</span>
+        </div>
+        <div class="doc-accordion-content">
+          <div class="materiales-grid">
+            <div class="material-item">
+              <strong>2x Micro:bit</strong>
+              <p>Placa profesor y placa estudiante para captura y comunicación de datos</p>
+              <img src="../../media/img/complementos/microbit_2.webp" alt="Micro:bit" class="material-img">
+              <img src="../../media/img/complementos/microbit_2.webp" alt="Micro:bit" class="material-img">
+            </div>
+            <div class="material-item">
+              <strong>1x Módulo de batería</strong>
+              <p>Para uso portátil sin conexión USB</p>
+              <img src="../../media/img/complementos/modulobateria.png" class="material-img">
+            </div>
+            <div class="material-item">
+              <strong>1x Computadora/Laptop</strong>
+              <p>Para programación, sistema y generación de ejercicios</p>
+              <img src="../../media/img/complementos/laptop.png" class="material-img">
+            </div>
+            <div class="material-item opcional">
+              <strong>1x Placa expansora</strong>
+              <p>Facilita conexiones con sensores externos</p>
+              <span class="badge-opcional">Opcional</span>
+              <img src="../../media/img/complementos/placaexpansora.png" class="material-img">
+            </div>
+            <div class="material-item opcional">
+              <strong>1x Rotary Encoder</strong>
+              <p>Sensor adicional de rotación para ejercicios avanzados</p>
+              <span class="badge-opcional">Opcional</span>
+              <img src="../../media/img/complementos/rotaryencoder.png" class="material-img">
+            </div>
+            <div class="material-item opcional">
+              <strong>1x Protoboard + cableado</strong>
+              <p>Para prototipos y conexiones personalizadas</p>
+              <span class="badge-opcional">Opcional</span>
+              <img src="../../media/img/complementos/protoboard.png" class="material-img">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Acordeón 3: Diseño Mecánico -->
+      <div class="doc-accordion">
+        <div class="doc-accordion-header" onclick="toggleDocAccordion(this)">
+          <h3>⚙️ Diseño mecánico</h3>
+          <span class="doc-accordion-icon">▼</span>
+        </div>
+        <div class="doc-accordion-content">
+          <p>
+            El sistema utiliza los botones integrados del Micro:bit para la interacción básica:
+          </p>
+          <ul>
+            <li><strong>Paso 1:</strong> Se utiliza el botón A del micro:bit para capturar el dato del sensor activo en ese momento</li>
+            <li><strong>Paso 2:</strong> Se toma el dato, como se ve en los siguientes ejemplos:</li>
+          </ul>
+          <img src="../../media/img/avances/2025-09-19_19.38.00.jpg" class="material-img">
+          <img src="../../media/img/avances/2025-08-29_20.00.21.jpg" class="material-img">
+          <img src="../../media/img/avances/2025-08-29_20.02.45.jpg" class="material-img">
+          <p>
+            Una vez capturado el dato, el trabajo principal es realizado por el software, 
+            generando el ejercicio matemático mediante IA.
+          </p>
+        </div>
+      </div>
+
+      <!-- Acordeón 4: Diseño Electrónico -->
+      <div class="doc-accordion">
+        <div class="doc-accordion-header" onclick="toggleDocAccordion(this)">
+          <h3>⚡ Diseño electrónico (opcional)</h3>
+          <span class="doc-accordion-icon">▼</span>
+        </div>
+        <div class="doc-accordion-content">
+          <h4>Conexión del Rotary Encoder (opcional)</h4>
+          <p>Diagrama de conexión realizado en TinkerCad:</p>
+          
+          <!-- Acá pondrías la imagen del diagrama -->
+          <div class="diagram-placeholder">
+            <img src="../../media/img/complementos/captura-tinkercad.png">
+          </div>
+          
+          <h4>Esquema de conexiones:</h4>
+          <table class="conexiones-table">
+            <thead>
+              <tr>
+                <th>Cable</th>
+                <th>Origen (Micro:bit)</th>
+                <th>Destino (Rotary Encoder)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="cable-color" style="background: #8B00FF;"></span> Violeta</td>
+                <td>Pin 1</td>
+                <td>Señal A del encoder</td>
+              </tr>
+              <tr>
+                <td><span class="cable-color" style="background: #00AA00;"></span> Verde</td>
+                <td>Pin 0</td>
+                <td>Señal B del encoder</td>
+              </tr>
+              <tr>
+                <td><span class="cable-color" style="background: #FF0000;"></span> Rojo</td>
+                <td>3V</td>
+                <td>Alimentación (+)</td>
+              </tr>
+              <tr>
+                <td><span class="cable-color" style="background: #000;"></span> Negro</td>
+                <td>GND</td>
+                <td>Tierra (-)</td>
+              </tr>
+            </tbody>
+          </table>
+          
+          <p class="nota-importante">
+            <strong>Nota:</strong> La resistencia pull-up está incluida internamente en el módulo del encoder.
+          </p>
+          
+          <a href="https://www.tinkercad.com/things/jtDg1BCaaEv/editel?returnTo=%2Fdashboard%2Fdesigns%2Fcircuits&sharecode=yZNme-_Om47oWXn3RrlI7KQBRUb2BOSMKvXH-jhwtQc"
+            target="_blank" class="doc-external-link">
+            🔗 Ver diseño completo en TinkerCad
+          </a>
+        </div>
+      </div>
+
+      <!-- Acordeón 5: Diseño Software -->
+      <div class="doc-accordion">
+        <div class="doc-accordion-header" onclick="toggleDocAccordion(this)">
+          <h3>💻 Diseño de software</h3>
+          <span class="doc-accordion-icon">▼</span>
+        </div>
+        <div class="doc-accordion-content">
+          <p>
+            El proyecto integra múltiples componentes de software para su funcionamiento completo:
+          </p>
+
+          <h4>🔄 Flujo del sistema:</h4>
+          <ol class="flujo-lista">
+            <li>El profesor configura tipo de sensor, dificultad y contexto del ejercicio</li>
+            <li>El sistema envía configuración a Micro:bit alumno vía radiofrecuencia</li>
+            <li>Micro:bit alumno captura datos del sensor (ej: temperatura, luz, sonido)</li>
+            <li>Los datos se envían de vuelta a Micro:bit profesor por RF</li>
+            <li>Micro:bit profesor transmite datos al sistema por USB</li>
+            <li>El sistema genera ejercicio matemático usando IA con los datos reales</li>
+          </ol>
+
+          <h4>📦 Repositorios del proyecto:</h4>
+          <div class="repos-grid">
+
+              <span class="repo-icon">🌐</span>
+              <strong>Sitio web documental</strong>
+              <p>Landing page y documentación</p>
+              <a href="https://github.com/PROYECTO-TD-2/web" target="_blank"  rel="noopener noreferrer" class="codigo-button docs">
+                Ver en GitHub
+              </a>
+           
+              <span class="repo-icon">🔌</span>
+              <strong>Conexión Micro:bit</strong>
+              <p>Comunicación serial</p>
+              <a href="https://github.com/PROYECTO-TD-2/microbit-connection" target="_blank" rel="noopener noreferrer" class="codigo-button docs">
+                Ver en GitHub
+            </a>
+
+              <span class="repo-icon">👨‍🏫</span>
+              <strong>Cliente web profesor</strong>
+              <p>Interfaz de configuración</p>
+              <a href="https://github.com/PROYECTO-TD-2/web-cliente-prof" target="_blank" rel="noopener noreferrer" class="codigo-button docs">
+                Ver en GitHub
+              </a>
+
+              <span class="repo-icon">🖥️</span>
+              <strong>Servidor Micro:bit</strong>
+              <p>Backend y API de IA</p>
+              <a href="https://github.com/PROYECTO-TD-2/microbit-server" target="_blank" rel="noopener noreferrer" class="codigo-button docs">
+                Ver en GitHub
+              </a>
+
+          </div>
+
+          <h4>🛠️ Códigos utilizados:</h4>
+          <ul>
+            <li><strong>Función:</strong> Realiza el llamado a la API de LLM.</li>
+<!-- Ejemplo de bloque de código -->
+<div class="code-block">
+  <div class="code-header">
+    <span class="code-language">JavaScript</span>
+    <button class="code-copy-btn" onclick="copyCode(this)">
+      <span class="copy-icon">📋</span>
+      <span class="copy-text">Copiar</span>
+    </button>
+  </div>
+  <pre><code class="language-javascript">
+    import { showToast } from "./ui.js";
+    const API_URL = "<url api>/generate";
+    
+    export async function fetchExercises(payload) {
+        try {
+            const response = await fetch(API_URL, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(payload),
+            });
+    
+            if (!response.ok) {
+              showToast("Error llamando a la API", "danger");
+              throw new Error(`Error en API: ${response.statusText}`);
+            }
+    
+            return await response.json();
+        } catch (err) { 
+            showToast("Error llamando a la API", "danger");
+            console.error("Error llamando a la API:", err);
+            return null;
+        }
+    }
+  </code></pre>
+</div>
+
+            <li><strong>Función:</strong> Vinculación de la placa micro:bit docente con el sistema.</li>
+            <div class="code-block">
+              <div class="code-header">
+                <span class="code-language">JavaScript</span>
+                <button class="code-copy-btn" onclick="copyCode(this)">
+                  <span class="copy-icon">📋</span>
+                  <span class="copy-text">Copiar</span>
+                </button>
+              </div>
+              <pre><code class="language-javascript">
+export async function connectMicrobit() {
+                  if (writer) {
+                     showToast("Micro:bit ya está conectado", "info");
+                      return;
+                  }
+                  try {
+                      showSpinner("Conectando con micro:bit...");
+                      port = await navigator.serial.requestPort();
+                      await port.open({ baudRate: 115200 });
+                      writer = port.writable.getWriter();
+                      reader = port.readable.getReader();
+              
+                      readLoop();
+                      hideSpinner();
+                       showToast("Micro:bit conectado", "success");
+                  } catch (err) {
+                      hideSpinner();
+                      showToast("Error al conectar: " + err, "danger");
+                  }
+              }
+              </code></pre>
+            </div>
+            <li><strong>Función:</strong> Configuración micro:bit docente.</li>
+            <div class="code-block">
+              <div class="code-header">
+                <span class="code-language">JavaScript</span>
+                <button class="code-copy-btn" onclick="copyCode(this)">
+                  <span class="copy-icon">📋</span>
+                  <span class="copy-text">Copiar</span>
+                </button>
+              </div>
+              <pre><code class="language-javascript">
+                from microbit import *
+                import radio
+                
+                # Encender radio y configurar grupo
+                radio.on()
+                radio.config(group=1,power=7)
+                
+                # Inicializar UART
+                uart.init(baudrate=115200)
+                
+                while True:
+                    # --- UART → RADIO --- UART (Universal Asynchronous Receiver/Transmitter)
+                    if uart.any():
+                        serial_data = uart.readline()
+                        if serial_data:
+                            message = serial_data.decode('utf-8').strip()
+                            
+                            # Enviar al alumno por radio
+                            radio.send(message)
+                            
+                            # Feedback visual
+                            display.show(Image.CHESSBOARD)
+                            sleep(300)
+                            display.clear()
+                    # --- RADIO → UART ---
+                    msg = radio.receive()
+                    if msg:
+                        # Mostrar feedback visual
+                        display.show(Image.YES)
+                        sleep(300)
+                        display.clear()
+                
+                        # Reenviar al navegador
+                        uart.write(msg + "\n")
+                    
+                    sleep(100)
+              </code></pre></div>
+            <li><strong>Función:</strong> Ejemplo de micro:bit estudiante.</li>
+            <div class="code-block">
+              <div class="code-header">
+                <span class="code-language">JavaScript</span>
+                <button class="code-copy-btn" onclick="copyCode(this)">
+                  <span class="copy-icon">📋</span>
+                  <span class="copy-text">Copiar</span>
+                </button>
+              </div>
+              <pre><code class="language-javascript">
+                from microbit import display, Image
+                from sensor_strategy import SensorStrategy
+                
+                class SensorLuz(SensorStrategy):
+                    def read(self):
+                        # truco: contar LEDs encendidos como proxy de luz
+                        # (micro:bit no tiene sensor de luz directo, se simula con la pantalla)
+                        level = display.read_light_level()
+                        pendiente = 13.4181
+                        intercepto = -668.1764 
+                        resultado = (level * pendiente) + intercepto
+                        if resultado < 0:
+                            resultado = 0
+                        return resultado
+              </code></pre>
+          </ul>
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <div class="contenedor-flecha">
+    <a href="../practico.html" class="arrow-link">⬅️​</a> 
+    <a href="../.." class="arrow-link">🏠​</a>
+  </div>
+
+  <script src="../../js/traductor.js"></script>
+  <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  <script type="text/javascript" src="../../js/documentacion-tecnica.js"></script>
+  <script defer type="text/javascript" src="../../js/script.js"></script>
+</body>
+
+</html>

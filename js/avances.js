@@ -520,9 +520,7 @@ function avancesImageZoom() {
     });
 }
 
-// Llamar esta función después de avancesRenderMonths()
 document.addEventListener('DOMContentLoaded', () => {
     avancesRenderMonths();
-    avancesImageZoom(); // Agregar esta línea
-    // ... resto del código
+    avancesImageZoom();
 });
